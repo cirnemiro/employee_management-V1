@@ -4,7 +4,11 @@ const jsgrid = {
  
     autoload: false,
     controller: {
+<<<<<<< HEAD
         loadData:   ,  //
+=======
+        loadData: $.noop,
+>>>>>>> 0bf487c04ba2a5eadf779e6e9a58211558c1f906
         insertItem: $.noop,
         updateItem: $.noop,
         deleteItem: $.noop
@@ -20,7 +24,11 @@ const jsgrid = {
     selecting: true,
     sorting: false,
     paging: false,
+<<<<<<< HEAD
     pageLoading: false, //should be true
+=======
+    pageLoading: false,
+>>>>>>> 0bf487c04ba2a5eadf779e6e9a58211558c1f906
  
     rowClass: function(item, itemIndex) { ... },
     rowClick: function(args) { ... },

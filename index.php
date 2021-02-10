@@ -14,7 +14,8 @@
     
 
 <?php
-
+  require 'test.php';
+  
 ?>
 
 
