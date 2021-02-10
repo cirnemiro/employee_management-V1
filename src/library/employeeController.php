@@ -1,4 +1,12 @@
 <?php
 require './employeeManager.php';
 
-echo getAllEmployees();
+$method = $_GET['method'];
+$args = $_GET['params'];
+
+function requestController($method, $args = 0)
+{
+    return $args ? $method($args) : $method();
+}
+
+echo requestController($method);

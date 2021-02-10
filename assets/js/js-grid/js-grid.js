@@ -1,20 +1,43 @@
+function changeData(data, args) {
+    return $.ajax({
+        url: 'library/employeeController.php',
+        method: 'GET',
+        data: {method: data, params: args},
+        success: function (response) {
+            // promise? I go to sleep.. think while dreaming
+            return JSON.parse(response);
+        }
+    })
+}
 
-const data = $.ajax({
+const employees = $.ajax({
     url: 'library/employeeController.php',
     method: 'GET',
-    data: 'param=employees',
+    data: {method: 'getAllEmployees', args: 0},
     success: function (response) {
         render(JSON.parse(response))
     }
 })
 
-function render(data) {
+function render(employees) {
     $('#grid').jsGrid({
-        data: data,
+        data: employees,
 
         autoload: true,
-        // controller: {
-        // },
+        controller: {
+            loadData: () => {
+                console.log(employees);
+            },
+            updateItem: (args) => {
+                return changeData('addEmployee', JSON.stringify(args));
+            },
+            insertItem: (args) => {
+                changeData('updateEmployee', JSON.stringify(args));
+            },
+            deleteItem: (args) => {
+                changeData('deleteEmployee', JSON.stringify(args));
+            }
+        },
 
         width: "100vw",
         height: "100vh",
@@ -23,20 +46,15 @@ function render(data) {
         sorting: true,
         paging: true,
 
-        // {
-        //     "id": "1",
-        //     "name": "Rack",
-        //     "lastName": "Lei",
-        //     "email": "jackon@network.com",
-        //     "gender": "man",
-        //     "age": "24",
-        // }
+        deleteConfirm: "Do you really want to delete this employee?",
+
         fields: [
             {name: "id", type: "number", width: "auto"},
             {name: "name", type: "text", width: "auto"},
             {name: "lastName", type: "text", width: "auto"},
             {name: "email", type: "email", width: "auto"},
-            {name: "gender", type: "select", width: "auto"},
+            // TODO // auto select gender from data //
+            {name: "gender", type: "select", items: ['male', 'female', 'non-binary'], width: "auto"},
             {name: "age", type: "number", width: "auto"},
             {type: "control"}
         ],

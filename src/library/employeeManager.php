@@ -13,24 +13,25 @@ function getAllEmployees()
     // TODO implement it
 }
 
-function addEmployee(array $newEmployee)
+function addEmployee($newEmployee)
 {
+    return json_encode($newEmployee);
 }
 
 
-function deleteEmployee(string $id)
+function deleteEmployee($id)
 {
-    // TODO implement it
+    return $id;
 }
 
 
-function updateEmployee(array $updateEmployee)
+function updateEmployee($updateEmployee)
 {
-    // TODO implement it
+    return $updateEmployee;
 }
 
 
-function getEmployee(string $id)
+function getEmployee($id)
 {
     // TODO implement it
 }
@@ -42,12 +43,12 @@ function removeAvatar($id)
 }
 
 
-function getQueryStringParameters(): array
-{
-    // TODO implement it
-}
+// function getQueryStringParameters(): array
+// {
+    // // TODO implement it
+// }
 
-function getNextIdentifier(array $employeesCollection): int
-{
-    // TODO implement it
-}
+// function getNextIdentifier(array $employeesCollection): int
+// {
+    // // TODO implement it
+// }
