@@ -1,22 +1,18 @@
 const jsgrid = {
     fields: [],
     data: [],
- 
+
     autoload: false,
     controller: {
-<<<<<<< HEAD
-        loadData:   ,  //
-=======
         loadData: $.noop,
->>>>>>> 0bf487c04ba2a5eadf779e6e9a58211558c1f906
         insertItem: $.noop,
         updateItem: $.noop,
         deleteItem: $.noop
     },
- 
+
     width: "auto",
     height: "auto",
- 
+
     heading: true,
     filtering: false,
     inserting: false,
@@ -24,21 +20,17 @@ const jsgrid = {
     selecting: true,
     sorting: false,
     paging: false,
-<<<<<<< HEAD
     pageLoading: false, //should be true
-=======
-    pageLoading: false,
->>>>>>> 0bf487c04ba2a5eadf779e6e9a58211558c1f906
- 
-    rowClass: function(item, itemIndex) { ... },
-    rowClick: function(args) { ... },
-    rowDoubleClick: function(args) { ... },
- 
+
+    rowClass: function (item, itemIndex) { ... },
+    rowClick: function(args) {... },
+    rowDoubleClick: function(args) {... },
+
     noDataContent: "Not found",
- 
+
     confirmDeleting: true,
     deleteConfirm: "Are you sure?",
- 
+
     pagerContainer: null,
     pageIndex: 1,
     pageSize: 20,
@@ -50,22 +42,22 @@ const jsgrid = {
     pageLastText: "Last",
     pageNavigatorNextText: "...",
     pageNavigatorPrevText: "...",
- 
-    invalidNotify: function(args) { ... }
-    invalidMessage: "Invalid data entered!",
- 
+
+    invalidNotify: function(args) {... }
+invalidMessage: "Invalid data entered!",
+
     loadIndication: true,
-    loadIndicationDelay: 500,
-    loadMessage: "Please, wait...",
-    loadShading: true,
- 
-    updateOnResize: true,
- 
-    rowRenderer: null,
-    headerRowRenderer: null,
-    filterRowRenderer: null,
-    insertRowRenderer: null,
-    editRowRenderer: null
+        loadIndicationDelay: 500,
+            loadMessage: "Please, wait...",
+                loadShading: true,
+
+                    updateOnResize: true,
+
+                        rowRenderer: null,
+                            headerRowRenderer: null,
+                                filterRowRenderer: null,
+                                    insertRowRenderer: null,
+                                        editRowRenderer: null
 }
 
 const field = {
@@ -75,30 +67,30 @@ const field = {
     align: "",
     width: 100,
     visible: true,
- 
+
     css: "",
     headercss: "",
     filtercss: "",
     insertcss: "",
     editcss: "",
- 
+
     filtering: true,
     inserting: true,
     editing: true,
     sorting: true,
     sorter: "string",
- 
-    headerTemplate: function() { ... },
-    itemTemplate: function(value, item) { ... },
-    filterTemplate: function() { ... },
-    insertTemplate: function() { ... },
-    editTemplate: function(value, item) { ... },
- 
-    filterValue: function() { ... },
-    insertValue: function() { ... },
-    editValue: function() { ... },
- 
+
+    headerTemplate: function () { ... },
+    itemTemplate: function(value, item) {... },
+    filterTemplate: function() {... },
+    insertTemplate: function() {... },
+    editTemplate: function(value, item) {... },
+
+    filterValue: function() {... },
+    insertValue: function() {... },
+    editValue: function() {... },
+
     cellRenderer: null,
- 
+
     validate: null
 }
