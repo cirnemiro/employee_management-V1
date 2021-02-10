@@ -22,9 +22,9 @@ const jsgrid = {
     paging: false,
     pageLoading: false, //should be true
 
-    rowClass: function (item, itemIndex) { ... },
-    rowClick: function(args) {... },
-    rowDoubleClick: function(args) {... },
+    // rowClass: function (item, itemIndex) { ... },
+    // rowClick: function(args) {... },
+    // rowDoubleClick: function(args) {... },
 
     noDataContent: "Not found",
 
@@ -43,21 +43,21 @@ const jsgrid = {
     pageNavigatorNextText: "...",
     pageNavigatorPrevText: "...",
 
-    invalidNotify: function(args) {... }
-invalidMessage: "Invalid data entered!",
+    // invalidNotify: function(args) {... },
+    // invalidMessage: "Invalid data entered!",
 
     loadIndication: true,
-        loadIndicationDelay: 500,
-            loadMessage: "Please, wait...",
-                loadShading: true,
+    loadIndicationDelay: 500,
+    loadMessage: "Please, wait...",
+    loadShading: true,
 
-                    updateOnResize: true,
+    updateOnResize: true,
 
-                        rowRenderer: null,
-                            headerRowRenderer: null,
-                                filterRowRenderer: null,
-                                    insertRowRenderer: null,
-                                        editRowRenderer: null
+    rowRenderer: null,
+    headerRowRenderer: null,
+    filterRowRenderer: null,
+    insertRowRenderer: null,
+    editRowRenderer: null
 }
 
 const field = {
@@ -80,15 +80,15 @@ const field = {
     sorting: true,
     sorter: "string",
 
-    headerTemplate: function () { ... },
-    itemTemplate: function(value, item) {... },
-    filterTemplate: function() {... },
-    insertTemplate: function() {... },
-    editTemplate: function(value, item) {... },
+    // headerTemplate: function () { ... },
+    // itemTemplate: function(value, item) {... },
+    // filterTemplate: function() {... },
+    // insertTemplate: function() {... },
+    // editTemplate: function(value, item) {... },
 
-    filterValue: function() {... },
-    insertValue: function() {... },
-    editValue: function() {... },
+    // filterValue: function() {... },
+    // insertValue: function() {... },
+    // editValue: function() {... },
 
     cellRenderer: null,
 

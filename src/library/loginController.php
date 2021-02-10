@@ -6,17 +6,12 @@ $password = $_POST['password'];
 require '../library/loginManager.php';
 require '../library/sessionHelper.php';
 
-$currentUser = loginValidation($username , $password);
+$currentUser = loginValidation($username, $password);
 
-if($currentUser){
+if ($currentUser) {
     // logged as currentIUser
-<<<<<<< HEAD
     header('location: ../dashboard.php');
-
-=======
-    
->>>>>>> 0bf487c04ba2a5eadf779e6e9a58211558c1f906
-}else{
+} else {
     //error logging -> redirect to loggin page + error message
 }
 
@@ -24,4 +19,3 @@ if($currentUser){
 
 // execute application
 //sessioncheck(start(loginValidation($username , $password)))
-
