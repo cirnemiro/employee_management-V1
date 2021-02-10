@@ -15,15 +15,15 @@ function loginValidation($username , $password){
                     return $username;
                 }
                 else{
-                    return 'incorrect password';
+                    return false;
                 }
             }else{
-                return 'incorrect username';
+                return false;
             }
         }
     } else {
-        // echo error
-        echo 'complete the information';
+        // echo error -> redirect login
+        
     }
 } 
 
