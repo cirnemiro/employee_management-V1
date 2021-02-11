@@ -28,9 +28,9 @@ function render(employees) {
         data: employees,
 
         autoload: true,
-        onItemUpdating: function(args){
+        onItemUpdating: function (args) {
             // for (const item of args.item) {
-            //     console.log(item);
+
             // }
 
             // if (args.item == args.previousItem) {
@@ -52,8 +52,8 @@ function render(employees) {
                         console.log(response)
                         // return JSON.parse(response);
                         if (response === 'update') {
-                            console.log(args.name);   
-                            alert(args.name+' has been modified')                         
+                            console.log(args.name);
+                            alert(args.name + ' has been modified')
                         }
                     }
                 );
@@ -65,15 +65,15 @@ function render(employees) {
                         console.log(response)
                         // return JSON.parse(response);
                         if (response === 'add') {
-                            console.log(args.name);   
-                            alert(args.name+' has been added')                         
+                            console.log(args.name);
+                            alert(args.name + ' has been added')
                         }
                     }
                 );
-                
+
             },
             deleteItem: (args) => {
-               
+
                 return changeData('GET', 'deleteEmployee', args).then(
                     response => {
                         console.log(response)
@@ -104,5 +104,34 @@ function render(employees) {
             {name: "age", type: "number", width: "auto"},
             {type: "control"}
         ],
+
+        rowDoubleClick: function (click) {
+            const cell = click.event.target;
+            const row = click.event.currentTarget;
+            const employee = click.item;
+            console.log(employee)
+
+            const template = `
+            <center id="employee-modal" class=" employee-modal width100">
+                <h1>MODAL</h1>
+                <input id="employee-modal__submit" type="submit"></input>
+                <button id="employee-modal__exit">EXIT</button>
+            </center>`
+
+            $('.employee-modal').remove();
+            $(template).insertAfter($(row));
+            $('#employee-modal__exit').on('click', () => {
+                $('.employee-modal').remove();
+            })
+            $('#employee-modal__submit').on('click', () => {
+                //***************** this will be new item form changed values **
+                this.updateItem(employee);
+            })
+        },
+        rowClick: function (click) {
+        },
+        insertValue: function (value) {
+            console.log(value)
+        }
     })
 }
