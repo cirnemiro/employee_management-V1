@@ -15,7 +15,5 @@ if ($currentUser) {
     //error logging -> redirect to loggin page + error message
 }
 
-
-
 // execute application
 //sessioncheck(start(loginValidation($username , $password)))
