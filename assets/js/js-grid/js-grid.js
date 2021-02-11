@@ -1,23 +1,27 @@
-function changeData(data, args) {
+function changeData(request, data, args) {
     return $.ajax({
         url: 'library/employeeController.php',
-        method: 'GET',
+        method: request,
         data: {method: data, params: args},
         success: function (response) {
             // promise? I go to sleep.. think while dreaming
-            return JSON.parse(response);
+            return response;
         }
     })
 }
 
-const employees = $.ajax({
-    url: 'library/employeeController.php',
-    method: 'GET',
-    data: {method: 'getAllEmployees', args: 0},
-    success: function (response) {
-        render(JSON.parse(response))
-    }
+const employees = changeData('GET', 'getAllEmployees', 0).then(response => {
+    render(JSON.parse(response))
 })
+
+// const employees = $.ajax({
+// url: 'library/employeeController.php',
+// method: 'GET',
+// data: {method: 'getAllEmployees', params: 0},
+// success: function (response) {
+// render(JSON.parse(response))
+// }
+// })
 
 function render(employees) {
     $('#grid').jsGrid({
@@ -26,16 +30,21 @@ function render(employees) {
         autoload: true,
         controller: {
             loadData: () => {
-                console.log(employees);
+                // console.log(employees);
             },
             updateItem: (args) => {
-                return changeData('addEmployee', JSON.stringify(args));
+                return changeData('GET', 'updateEmployee', args).then(
+                    response => {
+                        console.log(JSON.parse(response))
+                        // return JSON.parse(response);
+                    }
+                );
             },
             insertItem: (args) => {
-                changeData('updateEmployee', JSON.stringify(args));
+                // changeData('updateEmployee', args);
             },
             deleteItem: (args) => {
-                changeData('deleteEmployee', JSON.stringify(args));
+                // changeData('deleteEmployee', JSON.stringify(args));
             }
         },
 

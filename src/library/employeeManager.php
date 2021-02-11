@@ -27,7 +27,28 @@ function deleteEmployee($id)
 
 function updateEmployee($updateEmployee)
 {
-    return $updateEmployee;
+    $data = getAllEmployees();
+    $json = json_decode($data);
+    
+
+    $all = [];
+
+    foreach ($json as $employee) {
+        if ($employee->id === $updateEmployee['id']) {
+            array_push($all, json_encode($updateEmployee));
+        } else {
+            array_push($all, json_encode($employee));
+        }
+    }
+    
+    $result = [];
+    
+    foreach ($all as $string) {
+        array_push($result, json_decode($string));
+    }
+
+    file_put_contents('../../resources/employees.json', json_encode($result));
+    return json_encode($result);
 }
 
 
