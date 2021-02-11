@@ -12,7 +12,9 @@ function requestManager($obj,$action){
     $all = [];
     switch ($action) {
         case 'add':
-            array_push($data,json_decode($obj));         
+            print_r($data);
+            array_push($data,$obj);         
+            print_r($data);
             break;
         case 'update':
         case 'delete':        
