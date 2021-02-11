@@ -28,6 +28,19 @@ function render(employees) {
         data: employees,
 
         autoload: true,
+        onItemUpdating: function(args){
+            // for (const item of args.item) {
+            //     console.log(item);
+            // }
+
+            // if (args.item == args.previousItem) {
+            //     args.cancel =true
+            //     console.log('canceled');
+            // }else{
+            //     console.log('modified');
+            // }
+        },
+
         controller: {
             loadData: () => {
                 // console.log(employees);
@@ -35,16 +48,29 @@ function render(employees) {
             updateItem: (args) => {
                 return changeData('GET', 'updateEmployee', args).then(
                     response => {
-                        console.log(JSON.parse(response))
+                        console.log(response)
                         // return JSON.parse(response);
                     }
                 );
             },
             insertItem: (args) => {
-                // changeData('updateEmployee', args);
+                console.log(args);
+                return changeData('GET', 'addEmployee', args).then(
+                    response => {
+                        console.log(response)
+                        // return JSON.parse(response);
+                    }
+                );
+                
             },
             deleteItem: (args) => {
-                // changeData('deleteEmployee', JSON.stringify(args));
+               
+                return changeData('GET', 'deleteEmployee', args).then(
+                    response => {
+                        console.log(response)
+                        // return JSON.parse(response);
+                    }
+                );
             }
         },
 
@@ -54,6 +80,8 @@ function render(employees) {
         editing: true,
         sorting: true,
         paging: true,
+        updateOnResize: true,
+        inserting: true,
 
         deleteConfirm: "Do you really want to delete this employee?",
 
