@@ -48,6 +48,7 @@ function render(employees) {
             updateItem: (args) => {
                 return changeData('GET', 'updateEmployee', args).then(
                     response => {
+                        console.log(args);
                         console.log(response)
                         // return JSON.parse(response);
                     }

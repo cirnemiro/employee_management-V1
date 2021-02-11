@@ -5,19 +5,19 @@
  * @author: Jose Manuel Orts
  * @date: 11/06/2020
  */
+
 function requestManager($obj,$action){
     //new json
     $data = json_decode(getAllEmployees());
     $all = [];
-
     switch ($action) {
         case 'add':
-            array_push($data,json_decode($obj));
+            array_push($data,json_decode($obj));         
             break;
         case 'update':
-        case 'delete':
+        case 'delete':        
             foreach ($data as $employee) {
-                if ($employee->id === $obj['id']) {
+                if ($employee->id == $obj['id']) {
                     $action == 'update' && array_push($all, json_encode($obj));    
                 } else {
                     array_push($all, json_encode($employee));
@@ -28,15 +28,13 @@ function requestManager($obj,$action){
 
     $result = [];
     
-    foreach ($all as $string) {
+    foreach ($all as $string) {     
         array_push($result, json_decode($string));
     }
-
     file_put_contents('../../resources/employees.json', json_encode($result));
 
     return 'it\'s '.$action.'d';
 }
-
 
 function getAllEmployees()
 {
