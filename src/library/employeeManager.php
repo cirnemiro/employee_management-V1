@@ -10,11 +10,11 @@ function requestManager($obj,$action){
     //new json
     $data = json_decode(getAllEmployees());
     $all = [];
+    $result = [];
     switch ($action) {
         case 'add':
-            print_r($data);
             array_push($data,$obj);         
-            print_r($data);
+            $result = $data;
             break;
         case 'update':
         case 'delete':        
@@ -25,17 +25,15 @@ function requestManager($obj,$action){
                     array_push($all, json_encode($employee));
                 }
             }
+            foreach ($all as $string) {     
+                array_push($result, json_decode($string));
+            }
             break;
     }
-
-    $result = [];
-    
-    foreach ($all as $string) {     
-        array_push($result, json_decode($string));
-    }
+  
     file_put_contents('../../resources/employees.json', json_encode($result));
 
-    return 'it\'s '.$action.'d';
+    return $action;
 }
 
 function getAllEmployees()

@@ -51,6 +51,10 @@ function render(employees) {
                         console.log(args);
                         console.log(response)
                         // return JSON.parse(response);
+                        if (response === 'update') {
+                            console.log(args.name);   
+                            alert(args.name+' has been modified')                         
+                        }
                     }
                 );
             },
@@ -60,6 +64,10 @@ function render(employees) {
                     response => {
                         console.log(response)
                         // return JSON.parse(response);
+                        if (response === 'add') {
+                            console.log(args.name);   
+                            alert(args.name+' has been added')                         
+                        }
                     }
                 );
                 
