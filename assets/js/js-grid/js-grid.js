@@ -1,6 +1,15 @@
 import {modal} from "../modal.js";
 
-function changeData(request, data, args) {
+// const employees = $.ajax({
+// url: 'library/employeeController.php',
+// method: 'GET',
+// data: {method: 'getAllEmployees', params: 0},
+// success: function (response) {
+// render(JSON.parse(response))
+// }
+// })
+
+export function changeData(request, data, args) {
     return $.ajax({
         url: 'library/employeeController.php',
         method: request,
@@ -16,14 +25,6 @@ const employees = changeData('GET', 'getAllEmployees', 0).then(response => {
     render(JSON.parse(response))
 })
 
-// const employees = $.ajax({
-// url: 'library/employeeController.php',
-// method: 'GET',
-// data: {method: 'getAllEmployees', params: 0},
-// success: function (response) {
-// render(JSON.parse(response))
-// }
-// })
 
 function render(employees) {
     $('#grid').jsGrid({

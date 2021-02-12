@@ -1,3 +1,5 @@
+import {changeData} from './js-grid/js-grid.js'
+
 export const modal = {
     templateModal: function (employee, buttonType, action = '') {
         const template = `
@@ -52,7 +54,18 @@ export const modal = {
                     }
                 })
 
+                changeData('GET', 'updateEmployee', data.item).then(
+                    response => {
+                        console.log(response)
+                        // return JSON.parse(response);
+                        if (response === 'update') {
+                            alert(data.item.name + ' has been modified')
+                        }
+                    }
+                );
+
                 $('#employee-modal').remove();
+                location.reload();
             }
         })
     }
