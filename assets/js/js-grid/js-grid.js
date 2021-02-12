@@ -97,17 +97,20 @@ function render(employees) {
 
         deleteConfirm: "Do you really want to delete this employee?",
 
+
+
         fields: [
-            {name: "id", type: "number", width: "auto", align: "center", validate: "required"},
-            {name: "name", type: "text", width: "auto"},
-            {name: "lastName", type: "text", width: "auto"},
-            {name: "email", type: "email", width: "auto"},
+            {name: "id", type: "number", width: "auto", align: "center", validate: "required", headercss: 'table'},
+            {name: "name", type: "text", width: "auto", headercss: 'table'},
+            {name: "lastName", type: "text", width: "auto", headercss: 'table'},
+            {name: "email", type: "email", width: "auto", headercss: 'table'},
             // TODO // auto select gender from data //
             {
                 name: "gender", type: "select",
-                items: ['male', 'female', 'non-binary'], width: "auto"
+                items: ['male', 'female', 'non-binary'], width: "auto",
+                headercss: 'table'
             },
-            {name: "age", type: "number", width: "auto"},
+            {name: "age", type: "number", width: "auto", headercss: 'table'},
             {type: "control"},
         ],
         insertRowRenderer: function () {

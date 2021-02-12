@@ -1,0 +1,21 @@
+.employee-modal {
+    background-color: var(--dark-purple);
+}
+
+.employee-modal__inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.employee-modal__inputs input {
+    padding: 0.5rem;
+}
+
+.employee-modal__submit {
+
+}
+.employee-modal__exit {
+
+}
+
