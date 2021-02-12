@@ -1,0 +1,9 @@
+.table {
+    font-size: 1.2em;
+    color: var(--dark-purple);
+}
+
+.control {
+    border: 5px solid var(--black);
+}
+
