@@ -1,3 +1,5 @@
+import { modal } from "../modal.js";
+
 function changeData(request, data, args) {
     return $.ajax({
         url: 'library/employeeController.php',
@@ -107,33 +109,25 @@ function render(employees) {
                 items: ['male', 'female', 'non-binary'], width: "auto"
             },
             {name: "age", type: "number", width: "auto"},
-            {type: "control"}
+            {type: "control"},
         ],
         insertModeButtonTooltip: function (item) {
         },
-        rowDoubleClick: function (click) {
+        rowDoubleClick: function (data) {
             // -- todo modal:
             // >>> modal edit enable/disable modes.
-            // >>> create modal component.
-            // >>> listen from where comes the modal request.
-            // >>> listen to input values >> transform to object 
             // >>> run controller modes
             // >>> change "submit" functions for diferent cases
             // >>> delete modal when a employee is deleted
-            const cell = click.event.target;
-            const row = click.event.currentTarget;
-            const employee = click.item;
-            console.log(employee)
-
-            const template = `
-            <center id="employee-modal" class=" employee-modal width100">
-                <h1>MODAL</h1>
-                <input id="employee-modal__submit" type="submit"></input>
-                <button id="employee-modal__exit">EXIT</button>
-            </center>`
-
-            $('.employee-modal').remove();
-            $(template).insertAfter($(row));
+            // >>> listen from where comes the modal request.
+            // >>> ✅listen to input values >> transform to object 
+            // >>> ✅ create modal component 
+            const cell = data.event.target;
+            const row = data.event.currentTarget;
+            const employee = data.item; 
+            const form = modal.templateModal(data.item,'Edit','disabled')
+            $('#employee-modal').remove()
+            $(form).insertAfter($(row))
             $('#employee-modal__exit').on('click', () => {
                 $('.employee-modal').remove();
             })
@@ -144,8 +138,8 @@ function render(employees) {
         },
         rowClick: function (click) {
         },
-        insertValue: function (value) {
-            console.log(value)
+        insertValue: function (data) {
+            
         }
     })
 }

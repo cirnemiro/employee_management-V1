@@ -6,7 +6,7 @@
  
 <link rel="stylesheet" href="../assets/css/main.css">
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
-<script defer type="text/javascript" src="../assets/js/js-grid/js-grid.js"></script>
+<script  defer type="module" src="../assets/js/js-grid/js-grid.js"></script>
 
 
 <?php
