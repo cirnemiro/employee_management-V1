@@ -1,5 +1,19 @@
 @import url('./login.css');
 @import url('./helpers.css');
 
-
 /* reset */
+
+* {
+ font-family: 'Rubik', sans-serif;
+}
+
+:root {
+    --black: #282828;
+    --yellow: #E8C547;
+    --dark-purple: #30323D;
+    --ligth-purple: #4D5061;
+    --blue: #5c80BC;
+    --dark-blue: #4D6C9F;
+    --cream: #CDD1C4;
+    --white: #F9FDEF;
+}

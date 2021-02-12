@@ -1,3 +1,9 @@
 .width100 {
     width: 100vw;
 }
+
+.absolute-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
