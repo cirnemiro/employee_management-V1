@@ -90,7 +90,9 @@ function render(employees) {
         sorting: true,
         paging: true,
         updateOnResize: true,
-        inserting: true,
+        inserting: (args) => {
+            console.log(args)
+        },
 
         deleteConfirm: "Do you really want to delete this employee?",
 
@@ -100,12 +102,24 @@ function render(employees) {
             {name: "lastName", type: "text", width: "auto"},
             {name: "email", type: "email", width: "auto"},
             // TODO // auto select gender from data //
-            {name: "gender", type: "select", items: ['male', 'female', 'non-binary'], width: "auto"},
+            {
+                name: "gender", type: "select",
+                items: ['male', 'female', 'non-binary'], width: "auto"
+            },
             {name: "age", type: "number", width: "auto"},
             {type: "control"}
         ],
-
+        insertModeButtonTooltip: function (item) {
+        },
         rowDoubleClick: function (click) {
+            // -- todo modal:
+            // >>> modal edit enable/disable modes.
+            // >>> create modal component.
+            // >>> listen from where comes the modal request.
+            // >>> listen to input values >> transform to object 
+            // >>> run controller modes
+            // >>> change "submit" functions for diferent cases
+            // >>> delete modal when a employee is deleted
             const cell = click.event.target;
             const row = click.event.currentTarget;
             const employee = click.item;
