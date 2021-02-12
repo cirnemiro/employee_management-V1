@@ -1,40 +1,59 @@
 export const modal = {
-    templateModal: function(employee,buttonType,action=0){
-        console.log(employee);
+    templateModal: function (employee, buttonType, action = '') {
         const template = `
             <div id="employee-modal" class=" employee-modal width100">
                 <form>
-                    <div class="employee-modal__inputs"> 
-                    ${this.templateInputs(employee)}  
+                    <div  id="employee-modal__inputs" class="employee-modal__inputs"> 
+                        ${this.templateInputs(employee, action)}
                     </div>
-                    <button id="employee-modal__submit" type="submit">${buttonType}</button>
+                    <button id="employee-modal__submit" data-edit="false" type="submit">${buttonType}</button>
                     <button id="employee-modal__exit">EXIT</button>
                 </form>
-            </div>
-        `
-        return template
+            </div>`
+        return template;
+
     },
-    templateInputs: function(employee){
-        console.log(employee);
-            const template = `
+    templateInputs: function (employee, action) {
+        const template = `
                 <label>Name</label>
-                <input id="employee-modal-input__name" value="${employee.name}"></input>
+                <input class="employee-modal-input" id="employee-modal-input__name" value="${employee ? employee.name : ''}" ${action}></input>
                 <label>Last Name</label>
-                <input id="employee-modal-input__lastName" value="${employee.lastName}" ></input>
+                <input class="employee-modal-input" id="employee-modal-input__lastName" value="${employee ? employee.lastName : ''}" ${action} ></input>
                 <label>E-mail</label>
-                <input id="employee-modal-input__email" value="${employee.email}"></input>
+                <input class="employee-modal-input" id="employee-modal-input__email" value="${employee ? employee.email : ''}" ${action}></input>
                 <label>Phone</label>
-                <input id="employee-modal-input__phoneNumber" value="${employee.phoneNumber}"></input>
+                <input class="employee-modal-input" id="employee-modal-input__phoneNumber" value="${employee ? employee.phoneNumber : ''}" ${action}></input>
                 <label>Gender</label>
-                <input id="employee-modal-input__gender" value="${employee.gender}"></input>
+                <input class="employee-modal-input" id="employee-modal-input__gender" value="${employee ? employee.gender : ''}" ${action}></input>
                 <label>State</label>
-                <input id="employee-modal-input__state" value="${employee.state}"></input>
+                <input class="employee-modal-input" id="employee-modal-input__state" value="${employee ? employee.state : ''}" ${action}></input>
                 <label>City</label>
-                <input id="employee-modal-input__city" value="${employee.city}"></input>
+                <input class="employee-modal-input" id="employee-modal-input__city" value="${employee ? employee.city : ''}" ${action}></input>
                 <label>Street adress</label>
-                <input id="employee-modal-input__streedAdress" value="${employee.streetAddress}"></input>
-                
+                <input class="employee-modal-input" id="employee-modal-input__streedAdress" value="${employee ? employee.streetAddress : ''}" ${action}></input>
             `
-            return template
+        return template;
+    },
+    modalButtonListener: function (data, mode, jsGrid) {
+        $('#employee-modal__submit').on('click', e => {
+            e.preventDefault();
+
+            if (mode === 'disabled') {
+                // re-render with listener on enabled mode
+                const form = modal.templateModal(data.item, 'Submit');
+                $('#employee-modal').replaceWith(form);
+                this.modalButtonListener(data, 'enabled');
+            } else {
+                const keys = Object.keys(data.item);
+                // extract values from inputs
+                keys.map((key, index) => {
+                    if ($(`#employee-modal-input__${key}`).val()) {
+                        data.item[key] = $(`#employee-modal-input__${key}`).val();
+                    }
+                })
+
+                $('#employee-modal').remove();
+            }
+        })
     }
 }

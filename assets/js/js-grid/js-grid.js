@@ -1,4 +1,4 @@
-import { modal } from "../modal.js";
+import {modal} from "../modal.js";
 
 function changeData(request, data, args) {
     return $.ajax({
@@ -92,14 +92,12 @@ function render(employees) {
         sorting: true,
         paging: true,
         updateOnResize: true,
-        inserting: (args) => {
-            console.log(args)
-        },
+        inserting: true,
 
         deleteConfirm: "Do you really want to delete this employee?",
 
         fields: [
-            {name: "id", type: "number", width: "auto"},
+            {name: "id", type: "number", width: "auto", align: "center", validate: "required"},
             {name: "name", type: "text", width: "auto"},
             {name: "lastName", type: "text", width: "auto"},
             {name: "email", type: "email", width: "auto"},
@@ -111,7 +109,8 @@ function render(employees) {
             {name: "age", type: "number", width: "auto"},
             {type: "control"},
         ],
-        insertModeButtonTooltip: function (item) {
+        insertRowRenderer: function () {
+            return modal.templateModal(false, 'Edit')
         },
         rowDoubleClick: function (data) {
             // -- todo modal:
@@ -123,23 +122,23 @@ function render(employees) {
             // >>> ✅listen to input values >> transform to object 
             // >>> ✅ create modal component 
             const cell = data.event.target;
+            const employee = data.item;
             const row = data.event.currentTarget;
-            const employee = data.item; 
-            const form = modal.templateModal(data.item,'Edit','disabled')
-            $('#employee-modal').remove()
-            $(form).insertAfter($(row))
+
+            const form = modal.templateModal(data.item, 'Edit', 'disabled')
+
+            $('#employee-modal').remove();
+            $(form).insertAfter($(row));
+
             $('#employee-modal__exit').on('click', () => {
                 $('.employee-modal').remove();
-            })
-            $('#employee-modal__submit').on('click', () => {
-                //***************** this will be new item form changed values **
-                this.updateItem(employee);
-            })
+            });
+            modal.modalButtonListener(data, 'disabled');
         },
         rowClick: function (click) {
         },
         insertValue: function (data) {
-            
+
         }
     })
 }
