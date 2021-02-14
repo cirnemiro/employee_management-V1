@@ -82,8 +82,7 @@ function render(employees) {
             }
         },
 
-        width: "100vw",
-        height: "100vh",
+        width: "100%",
         filtering: false,
         editing: true,
         sorting: true,

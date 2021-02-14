@@ -3,6 +3,7 @@
   crossorigin="anonymous"></script>
 <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css" />
 <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
  
 <link rel="stylesheet" href="../assets/css/main.css">
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
@@ -11,7 +12,12 @@
 
 <?php
 echo '<div id="grid" class="grid"></div>';
-echo '<div id="custom-add" class="custom-add"></div>'
+echo '
+<div id="custom-add" class="custom-add custom-add-position no-select">
+    <span class="material-icons">
+        person_add
+    </span>
+</div>';
 ?>
 
 
