@@ -68,7 +68,7 @@ const field = {
     width: 100,
     visible: true,
 
-    css: "",
+    css: "table",
     headercss: "",
     filtercss: "",
     insertcss: "",
