@@ -12,12 +12,6 @@
 
 <?php
 echo '<div id="grid" class="grid"></div>';
-echo '
-<div id="custom-add" class="custom-add custom-add-position no-select">
-    <span class="material-icons">
-        person_add
-    </span>
-</div>';
 ?>
 
 

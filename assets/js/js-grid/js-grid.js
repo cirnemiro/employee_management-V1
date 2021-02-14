@@ -1,4 +1,5 @@
 import {modal} from "../modal.js";
+import {addEmployee} from "../add-employee.js";
 
 // const employees = $.ajax({
 // url: 'library/employeeController.php',
@@ -44,7 +45,8 @@ function render(employees) {
 
         controller: {
             loadData: () => {
-                // console.log(employees);
+                $('body').append(addEmployee.template)
+                addEmployee.addEmployeeListener();
             },
             updateItem: (args) => {
                 return changeData('GET', 'updateEmployee', args).then(
@@ -109,14 +111,14 @@ function render(employees) {
             {type: "control"},
         ],
         insertRowRenderer: function () {
-            setTimeout(() => {
-                modal.modalButtonListener({
-                    age: "", city: "", email: "", gender: "", id: "",
-                    lastName: "", name: "", phoneNumber: "",
-                    postalCode: "", state: "", streetAddress: ""
-                }, 'add');
-            }, 0)
-            $('.jsgrid-table').append(modal.templateModal(false, 'Submit'))
+            // setTimeout(() => {
+            // modal.modalButtonListener({
+            // age: "", city: "", email: "", gender: "", id: "",
+            // lastName: "", name: "", phoneNumber: "",
+            // postalCode: "", state: "", streetAddress: ""
+            // }, 'add');
+            // }, 0)
+            // $('.jsgrid-table').append(modal.templateModal(false, 'Submit'))
         },
         rowDoubleClick: function (data) {
             // -- todo modal:

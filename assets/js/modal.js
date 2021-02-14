@@ -77,7 +77,7 @@ export const modal = {
                 );
 
                 $('#employee-modal').remove();
-                // location.reload();
+                location.reload();
             }
         })
     }
