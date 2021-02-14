@@ -3,7 +3,7 @@ import {changeData} from './js-grid/js-grid.js'
 export const modal = {
     templateModal: function (employee, buttonType, action = '') {
         const template = `
-            <div id="employee-modal" class=" employee-modal width100">
+            <div id="${employee ? 'employee-modal' : 'employee-modal-header'}" class="employee-modal width100">
                 <form>
                     <div  id="employee-modal__inputs" class="employee-modal__inputs"> 
                         ${this.templateInputs(employee, action)}
@@ -44,7 +44,7 @@ export const modal = {
     },
     modalButtonListener: function (data, mode) {
         $('#employee-modal__exit').on('click', () => {
-            $('.employee-modal').remove();
+            $('#employee-modal').remove();
         });
 
         $('#employee-modal__submit').on('click', e => {
