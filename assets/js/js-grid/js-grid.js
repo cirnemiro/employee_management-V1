@@ -73,6 +73,7 @@ function render(employees) {
 
             },
             deleteItem: (args) => {
+                $('#employee-modal').remove();
                 return changeData('GET', 'deleteEmployee', args).then(
                     response => {
                         console.log(response)
