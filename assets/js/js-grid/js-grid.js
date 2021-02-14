@@ -50,8 +50,6 @@ function render(employees) {
             updateItem: (args) => {
                 return changeData('GET', 'updateEmployee', args).then(
                     response => {
-                        console.log(args);
-                        console.log(response)
                         // return JSON.parse(response);
                         if (response === 'updated') {
                             console.log(args.name);
@@ -125,16 +123,15 @@ function render(employees) {
             // -- todo modal:
             // >>> ✅listen to input values >> transform to object 
             // >>> ✅ create modal component 
-            // >>> modal edit enable/disable modes.
+            // >>> ✅ modal edit enable/disable modes.
             // >>> run controller modes
-            // >>> change "submit" functions for diferent cases
+            // >>> ✅ change "submit" functions for diferent cases
             // >>> delete modal when a employee is deleted
-            // >>> listen from where comes the modal request.
-
+            // >>> ✅ listen from where comes the modal request.
             const cell = data.event.target;
             const employee = data.item;
-            const row = data.event.currentTarget;
 
+            const row = data.event.currentTarget;
             const form = modal.templateModal(data.item, 'Edit', 'disabled')
 
             $('#employee-modal').remove();
