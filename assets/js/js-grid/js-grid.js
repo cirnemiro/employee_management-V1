@@ -15,7 +15,6 @@ export function changeData(request, data, args) {
         method: request,
         data: {method: data, params: args},
         success: function (response) {
-            // promise? I go to sleep.. think while dreaming
             return response;
         }
     })
@@ -54,9 +53,9 @@ function render(employees) {
                         console.log(args);
                         console.log(response)
                         // return JSON.parse(response);
-                        if (response === 'update') {
+                        if (response === 'updated') {
                             console.log(args.name);
-                            alert(args.name + ' has been modified')
+                            alert(args.name + ' has been updated')
                         }
                     }
                 );
@@ -67,7 +66,7 @@ function render(employees) {
                     response => {
                         console.log(response)
                         // return JSON.parse(response);
-                        if (response === 'add') {
+                        if (response === 'added') {
                             console.log(args.name);
                             alert(args.name + ' has been added')
                         }
@@ -76,7 +75,6 @@ function render(employees) {
 
             },
             deleteItem: (args) => {
-
                 return changeData('GET', 'deleteEmployee', args).then(
                     response => {
                         console.log(response)
@@ -98,7 +96,10 @@ function render(employees) {
         deleteConfirm: "Do you really want to delete this employee?",
 
         fields: [
-            {name: "id", type: "number", width: "auto", align: "center", validate: "required"},
+            {
+                name: "id", type: "number", width: "auto", align: "center",
+                validate: "required"
+            },
             {name: "name", type: "text", width: "auto"},
             {name: "lastName", type: "text", width: "auto"},
             {name: "email", type: "email", width: "auto"},
@@ -111,17 +112,25 @@ function render(employees) {
             {type: "control"},
         ],
         insertRowRenderer: function () {
-            return modal.templateModal(false, 'Edit')
+            setTimeout(() => {
+                modal.modalButtonListener({
+                    age: "", city: "", email: "", gender: "", id: "",
+                    lastName: "", name: "", phoneNumber: "",
+                    postalCode: "", state: "", streetAddress: ""
+                }, 'add');
+            }, 0)
+            return modal.templateModal(false, 'Submit')
         },
         rowDoubleClick: function (data) {
             // -- todo modal:
+            // >>> ✅listen to input values >> transform to object 
+            // >>> ✅ create modal component 
             // >>> modal edit enable/disable modes.
             // >>> run controller modes
             // >>> change "submit" functions for diferent cases
             // >>> delete modal when a employee is deleted
             // >>> listen from where comes the modal request.
-            // >>> ✅listen to input values >> transform to object 
-            // >>> ✅ create modal component 
+
             const cell = data.event.target;
             const employee = data.item;
             const row = data.event.currentTarget;
@@ -130,11 +139,7 @@ function render(employees) {
 
             $('#employee-modal').remove();
             $(form).insertAfter($(row));
-
-            $('#employee-modal__exit').on('click', () => {
-                $('.employee-modal').remove();
-            });
-            modal.modalButtonListener(data, 'disabled');
+            modal.modalButtonListener(data.item, 'disabled');
         },
         rowClick: function (click) {
         },

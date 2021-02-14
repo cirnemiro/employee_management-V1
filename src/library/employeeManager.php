@@ -6,26 +6,27 @@
  * @date: 11/06/2020
  */
 
-function requestManager($obj,$action){
+function requestManager($obj, $action)
+{
     //new json
     $data = json_decode(getAllEmployees());
     $all = [];
     $result = [];
     switch ($action) {
         case 'add':
-            array_push($data,$obj);         
+            array_push($data, $obj);
             $result = $data;
             break;
         case 'update':
-        case 'delete':        
+        case 'delete':
             foreach ($data as $employee) {
                 if ($employee->id == $obj['id']) {
-                    $action == 'update' && array_push($all, json_encode($obj));    
+                    $action == 'update' && array_push($all, json_encode($obj));
                 } else {
                     array_push($all, json_encode($employee));
                 }
             }
-            foreach ($all as $string) {     
+            foreach ($all as $string) {
                 array_push($result, json_decode($string));
             }
             break;
@@ -39,26 +40,25 @@ function requestManager($obj,$action){
 function getAllEmployees()
 {
     $data = file_get_contents('../../resources/employees.json');
-    return $data;   
+    return $data;
 }
 
 function addEmployee($newEmployee)
 {
     // return requestManager($newEmployee,'add');
-    return requestManager($newEmployee,'add');
+    return requestManager($newEmployee, 'add');
 }
 
 
 function deleteEmployee($deleteEmployee)
 {
-    return requestManager($deleteEmployee,'delete');
+    return requestManager($deleteEmployee, 'delete');
 }
 
 
 function updateEmployee($updateEmployee)
 {
-    return requestManager($updateEmployee,'update');
-    // return [requestManager($updateEmployee,'add'),'mensaje'];
+    return requestManager($updateEmployee, 'update');
 }
 
 
