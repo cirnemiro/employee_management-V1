@@ -57,22 +57,17 @@ export const modal = {
                 this.modalButtonListener(data, 'enabled');
             } else {
                 const keys = Object.keys(data);
-                console.log(keys)
 
                 // extract values from the inputs
                 keys.map(key => {
-                    if ($(`#employee-modal-input__${key}`).val()) {
-                        data[key] = $(`#employee-modal-input__${key}`).val();
-                    }
+                    data[key] = $(`#employee-modal-input__${key}`).val();
                 })
-                console.log(mode)
+
                 const phpMethod = mode === 'add' ? 'addEmployee' : 'updateEmployee';
                 const phpResponse = mode === 'add' ? 'added' : 'updated';
 
                 changeData('GET', phpMethod, data).then(
                     response => {
-                        console.log(phpMethod)
-                        console.log(response)
                         // return JSON.parse(response);
                         if (response === phpResponse) {
                             alert(data.name + ` has been ${phpResponse}`)
@@ -81,7 +76,7 @@ export const modal = {
                 );
 
                 $('#employee-modal').remove();
-                // location.reload();
+                location.reload();
             }
         })
     }

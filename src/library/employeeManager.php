@@ -13,15 +13,15 @@ function requestManager($obj, $action)
     $all = [];
     $result = [];
     switch ($action) {
-        case 'add':
+        case 'added':
             array_push($data, $obj);
             $result = $data;
             break;
-        case 'update':
-        case 'delete':
+        case 'updated':
+        case 'deleted':
             foreach ($data as $employee) {
                 if ($employee->id == $obj['id']) {
-                    $action == 'update' && array_push($all, json_encode($obj));
+                    $action == 'updated' && array_push($all, json_encode($obj));
                 } else {
                     array_push($all, json_encode($employee));
                 }
@@ -46,19 +46,19 @@ function getAllEmployees()
 function addEmployee($newEmployee)
 {
     // return requestManager($newEmployee,'add');
-    return requestManager($newEmployee, 'add');
+    return requestManager($newEmployee, 'added');
 }
 
 
 function deleteEmployee($deleteEmployee)
 {
-    return requestManager($deleteEmployee, 'delete');
+    return requestManager($deleteEmployee, 'deleted');
 }
 
 
 function updateEmployee($updateEmployee)
 {
-    return requestManager($updateEmployee, 'update');
+    return requestManager($updateEmployee, 'updated');
 }
 
 
