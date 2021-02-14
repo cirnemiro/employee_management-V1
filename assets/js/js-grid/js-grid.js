@@ -24,7 +24,6 @@ const employees = changeData('GET', 'getAllEmployees', 0).then(response => {
     render(JSON.parse(response))
 })
 
-
 function render(employees) {
     $('#grid').jsGrid({
         data: employees,
@@ -90,7 +89,7 @@ function render(employees) {
         sorting: true,
         paging: true,
         updateOnResize: true,
-        inserting: true,
+        inserting: false,
 
         deleteConfirm: "Do you really want to delete this employee?",
 
@@ -118,7 +117,7 @@ function render(employees) {
                     postalCode: "", state: "", streetAddress: ""
                 }, 'add');
             }, 0)
-            return modal.templateModal(false, 'Submit')
+            $('.jsgrid-table').append(modal.templateModal(false, 'Submit'))
         },
         rowDoubleClick: function (data) {
             // -- todo modal:
@@ -127,7 +126,7 @@ function render(employees) {
             // >>> ✅ modal edit enable/disable modes.
             // >>> run controller modes
             // >>> ✅ change "submit" functions for diferent cases
-            // >>> delete modal when a employee is deleted
+            // >>> ✅ delete modal when a employee is deleted
             // >>> ✅ listen from where comes the modal request.
             const cell = data.event.target;
             const employee = data.item;

@@ -3,7 +3,7 @@ import {changeData} from './js-grid/js-grid.js'
 export const modal = {
     templateModal: function (employee, buttonType, action = '') {
         const template = `
-            <div id="${employee ? 'employee-modal' : 'employee-modal-header'}" class="employee-modal width100">
+            <div id="employee-modal" class="employee-modal width100">
                 <form>
                     <div  id="employee-modal__inputs" class="employee-modal__inputs"> 
                         ${this.templateInputs(employee, action)}
@@ -50,6 +50,7 @@ export const modal = {
         $('#employee-modal__submit').on('click', e => {
             e.preventDefault();
 
+            console.log('mode')
             if (mode === 'disabled') {
                 // re-render with listener on enabled mode
                 const form = modal.templateModal(data, 'Submit');
@@ -76,7 +77,7 @@ export const modal = {
                 );
 
                 $('#employee-modal').remove();
-                location.reload();
+                // location.reload();
             }
         })
     }
