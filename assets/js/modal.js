@@ -8,8 +8,8 @@ export const modal = {
                     <div  id="employee-modal__inputs" class="employee-modal__inputs"> 
                         ${this.templateInputs(employee, action)}
                     </div>
-                    <button id="employee-modal__submit" data-edit="false" type="submit">${buttonType}</button>
-                    <button id="employee-modal__exit">EXIT</button>
+                    <button class="employee-modal__submit" id="employee-modal__submit" data-edit="false" type="submit">${buttonType}</button>
+                    <button class="employee-modal__exit" id="employee-modal__exit">EXIT</button>
                 </form>
             </div>`
         return template;
