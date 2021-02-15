@@ -1,0 +1,72 @@
+.employee-modal {
+    background-color: var(--dark-purple);
+}
+
+.employee-modal__inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.employee-modal__inputs label {
+    color: var(--white);
+    font-size: 1.1em;
+}
+
+.employee-modal__inputs input {
+    padding: 0.5rem;
+
+    /* style */
+    outline: none;
+    border: 2px solid var(--cream);
+    background-color: var(--cream);
+
+    /* font */
+    font-size: 1.1em;
+    text-align: center;
+}
+.employee-modal__inputs input:hover {
+    transition: 0.2s;
+    background-color: var(--white);
+    border: 2px solid var(--white);
+}
+
+.employee-modal__submit {
+    display: block;
+    all: unset;
+
+    /* style */
+    padding: 0.2rem 0.5rem;
+    border: 2px solid var(--blue);
+    border-radius: 2px;
+    background-color: var(--blue);
+    color: var(--cream);
+
+    /* font */
+    font-size: 1.2em;
+    font-weight: 500;
+}
+.employee-modal__inputs input:disabled {
+    all: unset;
+    padding: 0.5rem;
+
+    /* style */
+    outline: none;
+    /* border: 2px solid var(--cream); */
+    color: var(--cream);
+
+    /* font */
+    font-size: 1.1em;
+    text-align: center;
+}
+.employee-modal__submit:hover {
+    transition: 0.2s;
+    border: 2px solid var(--cream);
+}
+.employee-modal__submit:active{
+    background-color: var(--dark-blue);
+}
+
+.employee-modal__exit {
+
+}
+
