@@ -1,4 +1,5 @@
 import {changeData} from './js-grid/js-grid.js'
+import { validation } from './validation.js';
 
 export const modal = {
     templateModal: function (employee, buttonType, action = '') {
@@ -12,6 +13,7 @@ export const modal = {
                     <button type="button" class="employee-modal__exit" id="employee-modal__exit">EXIT</button>
                 </form>
             </div>`
+
         return template;
     },
     templateInputs: function (employee, action) {
@@ -35,10 +37,11 @@ export const modal = {
                 <label>City</label>
                 <input class="employee-modal-input" id="employee-modal-input__city" value="${employee ? employee.city : ''}" ${action}></input>
                 <label>Street Address</label>
-                <input class="employee-modal-input" id="employee-modal-input__streetAddress" value="${employee ? employee.streetAddress : ''}" ${action}></input>
+                <input class="employee-modal-input" id="employee-modal-input__streetAddress" value="${employee ? employee.streetAddress : ''}" ${action} required></input>
                 <label>Postal Code</label>
                 <input class="employee-modal-input" id="employee-modal-input__postalCode" value="${employee ? employee.postalCode : ''}" ${action}></input>
             `
+        
         return template;
     },
     modalButtonListener: function (data, mode) {
@@ -55,6 +58,7 @@ export const modal = {
                 const form = modal.templateModal(data, 'Submit');
                 $('#employee-modal').replaceWith(form);
                 this.modalButtonListener(data, 'enabled');
+                this.onBlurListener()
             } else {
                 const keys = Object.keys(data);
 
@@ -65,7 +69,7 @@ export const modal = {
 
                 const phpMethod = mode === 'add' ? 'addEmployee' : 'updateEmployee';
                 const phpResponse = mode === 'add' ? 'added' : 'updated';
-
+            
                 changeData('GET', phpMethod, data).then(
                     response => {
                         // return JSON.parse(response);
@@ -77,6 +81,16 @@ export const modal = {
 
                 $('#employee-modal').remove();
                 location.reload();
+            }
+        })
+    },
+    onBlurListener: function(){
+        const inputContainer = $('#employee-modal__inputs')
+        inputContainer.on('focusout',(e)=>{
+            if (e.target && e.target.classList.contains('employee-modal-input')) {
+                console.log(e.target.id);
+                const identifier = e.target.id.split('__')[1]
+                validation(e.target.value,identifier)     
             }
         })
     }

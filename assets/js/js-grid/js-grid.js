@@ -1,5 +1,6 @@
 import {modal} from "../modal.js";
 import {addEmployee} from "../add-employee.js";
+import { validation } from "../validation.js";
 
 
 export function changeData(request, data, args) {
@@ -81,19 +82,26 @@ function render(employees) {
 
         fields: [
             {
-                name: "id", type: "number", width: "auto", align: "center",
-                validate: "required", headercss: 'table'
+                name: "id", type: "number", width: "auto", align: "center", validate: "required", headercss: 'table'
             },
-            {name: "name", type: "text", width: "auto", headercss: 'table'},
-            {name: "lastName", type: "text", width: "auto", headercss: 'table'},
-            {name: "email", type: "email", width: "auto", headercss: 'table'},
+            {
+                name: "name", type: "text", width: "auto", headercss: 'table', validate: {validator:'pattern', param: /^(foo|bar)$/}
+            },
+            {
+                name: "lastName", type: "text", width: "auto", headercss: 'table', validate: {validator:'pattern', param: /^(foo|bar)$/}
+            },
+            {
+                name: "email", type: "email", width: "auto", headercss: 'table', validate: "required"
+            },
             // TODO // auto select gender from data //
             {
                 name: "gender", type: "select",
                 items: ['male', 'female', 'non-binary'], width: "auto",
                 headercss: 'table'
             },
-            {name: "age", type: "number", width: "auto", headercss: 'table'},
+            {
+                name: "age", type: "number", width: "auto", headercss: 'table', validate: "required"
+            },
             {type: "control"},
         ],
         rowDoubleClick: function (data) {
@@ -115,13 +123,25 @@ function render(employees) {
             }
         },
         onItemUpdating: function (args) {
+            
+            // if (args.item.name != 'klkpasa') {
+            //     console.log('updating error');
+            //     args.cancel = true
+            // }
+            validation(args)
+        },
+        onItemUpdated: function(args){
+            console.log('onItemUpdated',args);
         },
         insertRowRenderer: function () {
         },
         rowClick: function (click) {
         },
         insertValue: function (data) {
-
+        },
+        invalidNotify: function(args){
+            alert('error')
+            console.log(args);
         }
     })
 }
