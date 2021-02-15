@@ -8,7 +8,11 @@ export function changeData(request, data, args) {
         method: request,
         data: {method: data, params: args},
         success: function (response) {
-            return response;
+            if (response == 1) {                
+                window.location.href = "../index.php";
+            }else{
+                return response;
+            }
         }
     })
 }

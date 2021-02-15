@@ -1,15 +1,9 @@
 <?php
 require './sessionHelper.php';
 require './employeeManager.php';
-
-
-// $method = $_SERVER['REQUEST_METHOD']['method'];
-// $args = $_SERVER['REQUEST_METHOD']['params'];
-
 $method;
 $args;
 
-// print_r($_SERVER['REQUEST_METHOD']);
 switch ($_SERVER['REQUEST_METHOD']) {
     case 'GET':
         $method = $_GET['method'];
@@ -23,14 +17,14 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
 function requestController($method, $args = 0)
 {
-
     return $args ? $method($args) : $method();
 }
 
-//filtro aqui
-
-if (sessionCheck()) { 
-    echo requestController($method, $args);
+if (sessionCheck()) {
+    echo requestController($method,$args);
 }else{
-    header('location: ../../index.php');
+    echo 1;
 }
+
+
+
