@@ -7,3 +7,7 @@
     border: 5px solid var(--black);
 }
 
+
+.jsgrid-header-row>.jsgrid-header-cell {
+    background-color: red;
+}
