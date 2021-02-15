@@ -1,5 +1,7 @@
 <?php
+require './sessionHelper.php';
 require './employeeManager.php';
+
 
 // $method = $_SERVER['REQUEST_METHOD']['method'];
 // $args = $_SERVER['REQUEST_METHOD']['params'];
@@ -21,7 +23,14 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
 function requestController($method, $args = 0)
 {
+
     return $args ? $method($args) : $method();
 }
 
-echo requestController($method, $args);
+//filtro aqui
+
+if (sessionCheck()) { 
+    echo requestController($method, $args);
+}else{
+    header('location: ../../index.php');
+}

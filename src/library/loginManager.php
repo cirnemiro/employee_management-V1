@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 function loginValidation($username , $password){
     if ($username && $password ) {
         // json for validation
@@ -21,9 +21,12 @@ function loginValidation($username , $password){
                 return false;
             }
         }
+        
     } else {
         // echo error -> redirect login
         
     }
 } 
+
+
 
