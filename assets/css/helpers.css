@@ -1,5 +1,6 @@
 .width100 {
-    width: 100vw;
+    width: 95vw;
+    margin: 0 auto;
 }
 
 .none {

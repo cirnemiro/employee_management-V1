@@ -4,7 +4,7 @@
     border-radius: 10px;
     padding: 0.2rem 0.5rem;
     border: 2px solid var(--cream);
-    max-width: 4em;
+    max-width: 5rem;
 }
 
 .custom-add:hover {

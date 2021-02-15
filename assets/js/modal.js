@@ -9,35 +9,70 @@ export const modal = {
                         ${this.templateInputs(employee, action)}
                     </div>
                     <button class="employee-modal__submit" id="employee-modal__submit" data-edit="false" type="submit">${buttonType}</button>
-                    <button type="button" class="employee-modal__exit" id="employee-modal__exit">EXIT</button>
+                    <button type="button" class="employee-modal__exit" id="employee-modal__exit">Exit</button>
                 </form>
             </div>`
         return template;
     },
     templateInputs: function (employee, action) {
         const template = `
-                <label>ID</label>
-                <input class="employee-modal-input" id="employee-modal-input__id" value="${employee ? employee.id : ''}" ${action}></input>
-                <label>Name</label>
-                <input class="employee-modal-input" id="employee-modal-input__name" value="${employee ? employee.name : ''}" ${action}></input>
-                <label>Last Name</label>
-                <input class="employee-modal-input" id="employee-modal-input__lastName" value="${employee ? employee.lastName : ''}" ${action} ></input>
-                <label>E-mail</label>
-                <input class="employee-modal-input" id="employee-modal-input__email" value="${employee ? employee.email : ''}" ${action}></input>
-                <label>Phone</label>
-                <input class="employee-modal-input" id="employee-modal-input__phoneNumber" value="${employee ? employee.phoneNumber : ''}" ${action}></input>
-                <label>Gender</label>
-                <input class="employee-modal-input" id="employee-modal-input__gender" value="${employee ? employee.gender : ''}" ${action}></input>
-                <label>Age</label>
-                <input class="employee-modal-input" id="employee-modal-input__age" value="${employee ? employee.age : ''}" ${action}></input>
-                <label>State</label>
-                <input class="employee-modal-input" id="employee-modal-input__state" value="${employee ? employee.state : ''}" ${action}></input>
-                <label>City</label>
-                <input class="employee-modal-input" id="employee-modal-input__city" value="${employee ? employee.city : ''}" ${action}></input>
-                <label>Street Address</label>
-                <input class="employee-modal-input" id="employee-modal-input__streetAddress" value="${employee ? employee.streetAddress : ''}" ${action}></input>
-                <label>Postal Code</label>
-                <input class="employee-modal-input" id="employee-modal-input__postalCode" value="${employee ? employee.postalCode : ''}" ${action}></input>
+            <div class="employee-modal__inputs-container">
+                <div class="employee-modal__avatar no-select">
+                    <span class="material-icons">
+                        face
+                    </span>
+                </div>
+                <div class="employee-modal__pair">
+                    <label>Name</label>
+                    <input class="employee-modal-input employee-modal-input__name" id="employee-modal-input__name" value="${employee ? employee.name : ''}" ${action}></input>
+                </div>
+                <div class="employee-modal__pair">
+                    <label>Last Name</label>
+                    <input class="employee-modal-input" id="employee-modal-input__lastName" value="${employee ? employee.lastName : ''}" ${action} ></input>
+                </div>
+            </div>
+            <div class="employee-modal__inputs-container">
+                <div class="employee-modal__pair">
+                    <label>Age</label>
+                    <input class="employee-modal-input" id="employee-modal-input__age" value="${employee ? employee.age : ''}" ${action}></input>
+                </div>
+                <div class="employee-modal__pair">
+                    <label>Gender</label>
+                    <input class="employee-modal-input" id="employee-modal-input__gender" value="${employee ? employee.gender : ''}" ${action}></input>
+                </div>
+                <div class="employee-modal__pair">
+                    <label>E-mail</label>
+                    <input class="employee-modal-input" id="employee-modal-input__email" value="${employee ? employee.email : ''}" ${action}></input>
+                </div>
+            </div>
+            <div class="employee-modal__inputs-container">
+                <div class="employee-modal__pair">
+                    <label>ID</label>
+                    <input class="employee-modal-input" id="employee-modal-input__id" value="${employee ? employee.id : ''}" ${action}></input>
+                </div>
+                <div class="employee-modal__pair">
+                    <label>Phone</label>
+                    <input class="employee-modal-input" id="employee-modal-input__phoneNumber" value="${employee ? employee.phoneNumber : ''}" ${action}></input>
+                </div>
+                <div class="employee-modal__pair">
+                    <label>State</label>
+                    <input class="employee-modal-input" id="employee-modal-input__state" value="${employee ? employee.state : ''}" ${action}></input>
+                </div>
+            </div>
+            <div class="employee-modal__inputs-container">
+                <div class="employee-modal__pair">
+                    <label>City</label>
+                    <input class="employee-modal-input" id="employee-modal-input__city" value="${employee ? employee.city : ''}" ${action}></input>
+                </div>
+                <div class="employee-modal__pair">
+                    <label>Postal Code</label>
+                    <input class="employee-modal-input" id="employee-modal-input__postalCode" value="${employee ? employee.postalCode : ''}" ${action}></input>
+                </div>
+                <div class="employee-modal__pair">
+                    <label>Street Address</label>
+                    <input class="employee-modal-input" id="employee-modal-input__streetAddress" value="${employee ? employee.streetAddress : ''}" ${action}></input>
+                </div>
+            </div>
             `
         return template;
     },
