@@ -11,7 +11,7 @@
 
 
 <?php
-echo '<div id="grid" class="grid"></div>';
+    echo '<div id="grid" class="grid"></div>';
 ?>
 
 

@@ -9,11 +9,10 @@ export const modal = {
                         ${this.templateInputs(employee, action)}
                     </div>
                     <button class="employee-modal__submit" id="employee-modal__submit" data-edit="false" type="submit">${buttonType}</button>
-                    <button class="employee-modal__exit" id="employee-modal__exit">EXIT</button>
+                    <button type="button" class="employee-modal__exit" id="employee-modal__exit">EXIT</button>
                 </form>
             </div>`
         return template;
-
     },
     templateInputs: function (employee, action) {
         const template = `
