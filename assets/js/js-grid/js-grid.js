@@ -8,9 +8,9 @@ export function changeData(request, data, args) {
         method: request,
         data: {method: data, params: args},
         success: function (response) {
-            if (response == 1) {                
+            if (response == 1) {
                 window.location.href = "../index.php";
-            }else{
+            } else {
                 return response;
             }
         }
@@ -24,9 +24,7 @@ const employees = changeData('GET', 'getAllEmployees', 0).then(response => {
 function render(employees) {
     $('#grid').jsGrid({
         data: employees,
-
         autoload: true,
-
 
         controller: {
             loadData: () => {
@@ -36,7 +34,6 @@ function render(employees) {
             updateItem: (args) => {
                 return changeData('GET', 'updateEmployee', args).then(
                     response => {
-                        // return JSON.parse(response);
                         if (response === 'updated') {
                             console.log(args.name);
                             alert(args.name + ' has been updated')
@@ -45,11 +42,9 @@ function render(employees) {
                 );
             },
             insertItem: (args) => {
-                console.log(args);
                 return changeData('GET', 'addEmployee', args).then(
                     response => {
                         console.log(response)
-                        // return JSON.parse(response);
                         if (response === 'added') {
                             console.log(args.name);
                             alert(args.name + ' has been added')
@@ -63,7 +58,6 @@ function render(employees) {
                 return changeData('GET', 'deleteEmployee', args).then(
                     response => {
                         console.log(response)
-                        // return JSON.parse(response);
                     }
                 );
             }

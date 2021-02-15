@@ -12,6 +12,10 @@
     transform: translate(-50%, -50%);
 }
 
+.from-right {
+    right: -50vw;
+}
+
 .no-select {
     -webkit-touch-callout: none;
     -webkit-user-select: none;

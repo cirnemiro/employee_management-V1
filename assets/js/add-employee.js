@@ -2,7 +2,7 @@ import {modal} from "./modal.js";
 const addEmployee = {
     template: `
     <div id="custom-add" class="custom-add custom-add-position no-select">
-        <span class="material-icons">
+        <span id="custom-add__icon" class="material-icons">
             person_add
         </span>
     </div>'`,

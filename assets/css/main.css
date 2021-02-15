@@ -1,13 +1,17 @@
 @import url('./login.css');
-@import url('./helpers.css');
 @import url('./dashboard.css');
 @import url('./modal.css');
 @import url('./add-employee.css');
+@import url('./helpers.css');
 
 /* reset */
 
 * {
  font-family: 'Rubik', sans-serif;
+}
+
+body {
+    overflow: hidden;
 }
 
 :root {
