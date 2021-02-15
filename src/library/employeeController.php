@@ -1,13 +1,9 @@
 <?php
+require './sessionHelper.php';
 require './employeeManager.php';
-
-// $method = $_SERVER['REQUEST_METHOD']['method'];
-// $args = $_SERVER['REQUEST_METHOD']['params'];
-
 $method;
 $args;
 
-// print_r($_SERVER['REQUEST_METHOD']);
 switch ($_SERVER['REQUEST_METHOD']) {
     case 'GET':
         $method = $_GET['method'];
@@ -24,4 +20,11 @@ function requestController($method, $args = 0)
     return $args ? $method($args) : $method();
 }
 
-echo requestController($method, $args);
+if (sessionCheck()) {
+    echo requestController($method,$args);
+}else{
+    echo 1;
+}
+
+
+

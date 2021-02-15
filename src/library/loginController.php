@@ -12,7 +12,8 @@ if ($currentUser) {
     // logged as currentIUser
     header('location: ../dashboard.php');
 } else {
-    //error logging -> redirect to loggin page + error message
+    header('location: ../../index.php');
+    // pop out loggeds failed
 }
 
 // execute application

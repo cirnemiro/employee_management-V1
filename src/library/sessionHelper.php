@@ -1,13 +1,17 @@
 <?php
 session_start();
 
-$_SESSION['session'] = false;
-
-function sessionCheck($method){
-    if($_SESSION['session']){
-        //active session
-        $method;
+if(!isset($_SESSION['sessionTimer'])){
+    $_SESSION['sessionTimer'] = time();
+}
+function sessionCheck(){
+    $rest =  time() - $_SESSION['sessionTimer'];
+    if ($rest < 180) {
+        return true ; 
     }else{
-        // expired session -> reeirect loggin page + session expired
+        session_destroy();
+        return false;
     }
 }
+?>
+
