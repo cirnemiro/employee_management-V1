@@ -8,6 +8,6 @@
 }
 
 
-.jsgrid-header-row>.jsgrid-header-cell {
-    background-color: red;
+.jsgrid-grid-header, .jsgrid-grid-body{
+  overflow: auto;
 }
