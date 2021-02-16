@@ -14,6 +14,7 @@ function requestManager($obj, $action)
     $result = [];
     switch ($action) {
         case 'added':
+            $obj['id'] = time();
             array_push($data, $obj);
             $result = $data;
             break;

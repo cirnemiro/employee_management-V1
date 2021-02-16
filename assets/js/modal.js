@@ -23,6 +23,7 @@ export const modal = {
                     <span class="material-icons">
                         face
                     </span>
+                    <p id="employee-modal__id" class="employee-modal__id">${employee ? '#' + employee.id : ''}</p>
                 </div>
                 <div class="employee-modal__pair">
                     <label>Name</label>
@@ -50,7 +51,7 @@ export const modal = {
             <div class="employee-modal__inputs-container">
                 <div class="employee-modal__pair">
                     <label>Phone</label>
-                    <input name='phone' class="employee-modal-input" id="employee-modal-input__phoneNumber" value="${employee ? employee.phoneNumber : ''}" pattern="^[0-9]" required ${action}></input>
+                    <input name='phone' class="employee-modal-input" id="employee-modal-input__phoneNumber" value="${employee ? employee.phoneNumber : ''}" pattern="^[0-9]{9,13}" required ${action}></input>
                 </div>
                 <div class="employee-modal__pair">
                     <label>State</label>
@@ -60,7 +61,7 @@ export const modal = {
             <div class="employee-modal__inputs-container">
                 <div class="employee-modal__pair">
                     <label>City</label>
-                    <input name="city" class="employee-modal-input" id="employee-modal-input__city" value="${employee ? employee.city : ''}" pattern="[A-Za-z]" required ${action}></input>
+                    <input name="city" class="employee-modal-input" id="employee-modal-input__city" value="${employee ? employee.city : ''}" pattern="^[A-Za-z]{2,20}" required ${action}></input>
                 </div>
                 <div class="employee-modal__pair">
                     <label>Postal Code</label>
@@ -85,10 +86,10 @@ export const modal = {
             name: '^[A-Za-z]{2,10}',
             lastName: '^[A-Za-z]{2,10}',
             email: '^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$',
-            city: '[A-Za-z]',
+            city: '^[A-Za-z]{2,20}',
             age: '^[0-9]{0,2}',
             gender: '^[A-Za-z ]{2,10}',
-            phone: '^[0-9]',
+            phone: '^[0-9]{9,13}',
             state: '^[A-Za-z ]{2,10}',
             streetAddress: '^[A-Za-z0-9 ]{5,20}',
             postalCode: '[0-9]{5}',
@@ -101,6 +102,8 @@ export const modal = {
                 if (regExp[key] === pattern) {
                     form[key].classList.remove('wrong-input');
                     result.push(true)
+                } else {
+                    console.log(key)
                 }
             } else {
                 form[key].classList.add('wrong-input');
