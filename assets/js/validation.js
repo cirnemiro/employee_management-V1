@@ -27,7 +27,6 @@ export const validation = (value,identifier)=>{
 
 
 
-
     // console.log('args from vlaidation function', args);
     // if (args.item.name != 'klkpasa') {
     //             console.log('updating error');
