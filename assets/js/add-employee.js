@@ -8,6 +8,8 @@ const addEmployee = {
     </div>'`,
     addEmployeeListener: function () {
         $('#custom-add').on('click', () => {
+            window.scrollTo(0, 0);
+            console.log('scroll');
             $('#employee-modal').remove();
             $('.grid').prepend(modal.templateModal(false, 'Submit')).one();
             modal.modalButtonListener({

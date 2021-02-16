@@ -1,34 +1,30 @@
-@import url('./login.css');
-@import url('./dashboard.css');
-@import url('./add-employee.css');
-@import url('./modal.css');
-@import url('./helpers.css');
+@import url("./login.css");
+@import url("./dashboard.css");
+@import url("./add-employee.css");
+@import url("./modal.css");
+@import url("./helpers.css");
+@import url("./header.css");
+@import url("./footer.css");
 
 /* reset */
 
 * {
-    font-family: 'Rubik', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    overflow: hidden;
-}
-
-body {
-    overflow: auto;
-    margin: 2rem;
+  font-family: "Rubik", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
-    --black: #282828;
-    --yellow: #E8C547;
-    --dark-purple: #30323D;
-    --ligth-purple: #4D5061;
-    --blue: #5c80BC;
-    --dark-blue: #4D6C9F;
-    --red: #BC5C5C;
-    --dark-red: #9F4D4D;
-    --wrong:#FF1F1F ;
-    --cream: #CDD1C4;
-    --white: #F9FDEF;
+  --black: #282828;
+  --yellow: #e8c547;
+  --dark-purple: #30323d;
+  --ligth-purple: #4d5061;
+  --blue: #5c80bc;
+  --dark-blue: #4d6c9f;
+  --red: #bc5c5c;
+  --dark-red: #9f4d4d;
+  --wrong: #ff1f1f;
+  --cream: #cdd1c4;
+  --white: #f9fdef;
 }

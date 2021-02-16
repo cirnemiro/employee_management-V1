@@ -11,7 +11,7 @@
       </form>
     </div>
 <?php
-  
+  include 'assets/html/footer.html';
 ?>
 
 

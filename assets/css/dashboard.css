@@ -1,13 +1,17 @@
 .table {
-    font-size: 1.2em;
-    color: var(--dark-purple);
+  font-size: 1.2em;
+  color: var(--dark-purple);
 }
 
 .control {
-    border: 5px solid var(--black);
+  border: 5px solid var(--black);
 }
 
-
-.jsgrid-grid-header, .jsgrid-grid-body{
+.jsgrid-grid-header,
+.jsgrid-grid-body {
   overflow: auto;
+}
+.grid {
+  padding: 10px;
+  margin: auto;
 }

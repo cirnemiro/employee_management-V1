@@ -64,13 +64,17 @@ function render(employees) {
             }
         },
 
-        width: "100%",
+        width: "90%",
+        margin: 'auto',
         filtering: false,
         editing: true,
         sorting: true,
         paging: true,
         updateOnResize: true,
         inserting: false,
+        pageSize: 10,
+        pageNextText: '>>',
+        pagePrevText: '<<',
 
         deleteConfirm: "Do you really want to delete this employee?",
 
