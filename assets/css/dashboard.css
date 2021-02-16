@@ -7,3 +7,7 @@
     border: 5px solid var(--black);
 }
 
+
+.jsgrid-grid-header, .jsgrid-grid-body{
+  overflow: auto;
+}

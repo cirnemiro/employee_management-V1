@@ -1,13 +1,22 @@
 @import url('./login.css');
-@import url('./helpers.css');
 @import url('./dashboard.css');
-@import url('./modal.css');
 @import url('./add-employee.css');
+@import url('./modal.css');
+@import url('./helpers.css');
 
 /* reset */
 
 * {
- font-family: 'Rubik', sans-serif;
+    font-family: 'Rubik', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+body {
+    overflow: auto;
+    margin: 2rem;
 }
 
 :root {
@@ -17,6 +26,9 @@
     --ligth-purple: #4D5061;
     --blue: #5c80BC;
     --dark-blue: #4D6C9F;
+    --red: #BC5C5C;
+    --dark-red: #9F4D4D;
+    --wrong:#FF1F1F ;
     --cream: #CDD1C4;
     --white: #F9FDEF;
 }
