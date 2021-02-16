@@ -17,6 +17,7 @@ const addEmployee = {
                 lastName: "", name: "", phoneNumber: "", id: "",
                 postalCode: "", state: "", streetAddress: ""
             }, 'add');
+            modal.avatarListener();
         })
     }
 }

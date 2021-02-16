@@ -22,7 +22,7 @@ export const modal = {
         const template = `
             <div class="employee-modal__inputs-container__avatar">
                 <div class="employee-modal__avatar no-select">
-                    <img src="https://avatars.dicebear.com/4.5/api/male/${employee.name}.svg" alt="employee.id">
+                    <img id="employee-modal__avatar" src="https://avatars.dicebear.com/4.5/api/male/${employee.name}.svg" alt="employee.id">
                     <input id="employee-modal-input__id" class="employee-modal-input__id" value='${employee ? employee.id : ''}' disabled></input>
                 </div>
             </div>
@@ -145,16 +145,36 @@ export const modal = {
                 const form = modal.templateModal(data, 'Submit');
                 $('#employee-modal').replaceWith(form);
                 this.modalButtonListener(data, 'enabled');
+                modal.avatarListener();
                 // this.onBlurListener()
             } else {
                 if (this.checkInputs()) {
                     this.getInputValues(data, mode);
 
                     $('#employee-modal').remove();
-                    // location.reload();
+                    location.reload();
                 }
             }
         })
+    },
+    avatarListener: function () {
+        const inputName = $('#employee-modal-input__name');
+        const gender = $('#employee-modal-input__gender');
+
+        const avatar = $('#employee-modal__avatar');
+        const splitted = avatar.attr('src').split('/')
+
+        // change avatar from input
+        inputName.on('input', () => {
+            splitted[splitted.length - 1] = inputName.val() + '.svg'
+            avatar.attr('src', splitted.join('/'))
+        })
+        // gender.on('input', () => {
+        // splitted[splitted.length - 2] = gender.val()
+        // avatar.attr('src', splitted.join('/'))
+        // console.log(splitted)
+        // })
+
     },
     onBlurListener: function () {
         const inputContainer = $('#employee-modal__inputs')
