@@ -13,7 +13,7 @@ const addEmployee = {
             $('#employee-modal').remove();
             $('tbody').prepend(modal.templateModal(false, 'Submit')).one();
             modal.modalButtonListener({
-                age: "", city: "", email: "", gender: "", id: "",
+                age: "", city: "", email: "", gender: "",
                 lastName: "", name: "", phoneNumber: "",
                 postalCode: "", state: "", streetAddress: ""
             }, 'add');
