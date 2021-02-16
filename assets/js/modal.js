@@ -26,53 +26,53 @@ export const modal = {
                 </div>
                 <div class="employee-modal__pair">
                     <label>Name</label>
-                    <input name="name" class="employee-modal-input employee-modal-input__name" id="employee-modal-input__name" value="${employee ? employee.name : ''}" pattern="/^[A-Za-z]{2,10}/g" required ${action}></input>
+                    <input name="name" class="employee-modal-input employee-modal-input__name" id="employee-modal-input__name" value="${employee ? employee.name : ''}" pattern="^[A-Za-z]{2,10}" required ${action}></input>
                 </div>
                 <div class="employee-modal__pair">
                     <label>Last Name</label>
-                    <input name="lastName" class="employee-modal-input" id="employee-modal-input__lastName" value="${employee ? employee.lastName : ''}" required pattern="/^[A-Za-z]{2,10}/g" ${action}></input>
+                    <input name="lastName" class="employee-modal-input" id="employee-modal-input__lastName" value="${employee ? employee.lastName : ''}" required pattern="^[A-Za-z]{2,10}" ${action}></input>
                 </div>
             </div>
             <div class="employee-modal__inputs-container">
                 <div class="employee-modal__pair">
                     <label>Age</label>
-                    <input name="age" class="employee-modal-input" id="employee-modal-input__age" value="${employee ? employee.age : ''}"  pattern="/^[0-9]{2}/g" required ${action}></input>
+                    <input name="age" class="employee-modal-input" id="employee-modal-input__age" value="${employee ? employee.age : ''}"  pattern="^[0-9]{0,2}" required ${action}></input>
                 </div>
                 <div class="employee-modal__pair">
                     <label>Gender</label>
-                    <input name="gender" class="employee-modal-input" id="employee-modal-input__gender" value="${employee ? employee.gender : ''}" required ${action}></input>
+                    <input name="gender" class="employee-modal-input" id="employee-modal-input__gender" value="${employee ? employee.gender : ''}" pattern='^[A-Za-z ]{2,10}' required ${action}></input>
                 </div>
                 <div class="employee-modal__pair">
                     <label>E-mail</label>
-                    <input name="email" class="employee-modal-input" id="employee-modal-input__email" value="${employee ? employee.email : ''}" pattern=${'/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/'}  required ${action}></input>
+                    <input name="email" class="employee-modal-input" id="employee-modal-input__email" value="${employee ? employee.email : ''}" pattern=${'^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$'}  required ${action}></input>
                 </div>
             </div>
             <div class="employee-modal__inputs-container">
                 <div class="employee-modal__pair">
                     <label>ID</label>
-                    <input name="id" class="employee-modal-input" id="employee-modal-input__id" value="${employee ? employee.id : ''}" pattern='/^[0-9]/g' required ${action}></input>
+                    <input name="id" class="employee-modal-input" id="employee-modal-input__id" value="${employee ? employee.id : ''}" pattern='^[0-9]' required ${action}></input>
                 </div>
                 <div class="employee-modal__pair">
                     <label>Phone</label>
-                    <input name='phone' class="employee-modal-input" id="employee-modal-input__phoneNumber" value="${employee ? employee.phoneNumber : ''}" pattern="/(\+34|0034|34)?[ -]*(6|7)[ -]*([0-9][ -]*){8}/g" required ${action}></input>
+                    <input name='phone' class="employee-modal-input" id="employee-modal-input__phoneNumber" value="${employee ? employee.phoneNumber : ''}" pattern="^[0-9]" required ${action}></input>
                 </div>
                 <div class="employee-modal__pair">
                     <label>State</label>
-                    <input name="state" class="employee-modal-input" id="employee-modal-input__state" value="${employee ? employee.state : ''}" pattern='/^[A-Za-z ]{2,10}/g' required ${action}></input>
+                    <input name="state" class="employee-modal-input" id="employee-modal-input__state" value="${employee ? employee.state : ''}" pattern='^[A-Za-z ]{2,10}' required ${action}></input>
                 </div>
             </div>
             <div class="employee-modal__inputs-container">
                 <div class="employee-modal__pair">
                     <label>City</label>
-                    <input name="city" class="employee-modal-input" id="employee-modal-input__city" value="${employee ? employee.city : ''}" pattern="/[A-Za-z]/g" required ${action}></input>
+                    <input name="city" class="employee-modal-input" id="employee-modal-input__city" value="${employee ? employee.city : ''}" pattern="[A-Za-z]" required ${action}></input>
                 </div>
                 <div class="employee-modal__pair">
                     <label>Postal Code</label>
-                    <input name="postalCode" class="employee-modal-input" id="employee-modal-input__postalCode" value="${employee ? employee.postalCode : ''}" patter="/[0-9]{5}/g" required ${action}></input>
+                    <input name="postalCode" class="employee-modal-input" id="employee-modal-input__postalCode" value="${employee ? employee.postalCode : ''}" pattern="[0-9]{5}" required ${action}></input>
                 </div>
                 <div class="employee-modal__pair">
                     <label>Street Address</label>
-                    <input name="streetAddress" class="employee-modal-input" id="employee-modal-input__streetAddress" value="${employee ? employee.streetAddress : ''}" pattern="/^[A-Za-z0-9 ]{5,20}/g" required ${action}></input>
+                    <input name="streetAddress" class="employee-modal-input" id="employee-modal-input__streetAddress" value="${employee ? employee.streetAddress : ''}" pattern="^[A-Za-z0-9 ]{5,20}" required ${action}></input>
                 </div>
             </div>
             `
@@ -86,18 +86,30 @@ export const modal = {
             'id', 'phone', 'state', 'city', 'postalCode', 'streetAddress'
         ]
         const regExp = {
-            name: /^[A-Za-z]{2,10}/g,
-            lastName: /^[A-Za-z]{2,10}/g,
-            email: /ab+c/i,
-            postalCode: /ab+c/i,
+            name: '^[A-Za-z]{2,10}',
+            lastName: '^[A-Za-z]{2,10}',
+            email: '^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$',
+            city: '[A-Za-z]',
+            age: '^[0-9]{0,2}',
+            gender: '^[A-Za-z ]{2,10}',
+            id: '^[0-9]',
+            phone: '^[0-9]',
+            state: '^[A-Za-z ]{2,10}',
+            streetAddress: '^[A-Za-z0-9 ]{5,20}',
+            postalCode: '[0-9]{5}',
         }
         const result = [];
-        inputNames.forEach((name, index) => {
-            if (form[name].checkValidity()) {
-                result.push(true)
+        inputNames.forEach((key, index) => {
+            const pattern = form[key].pattern;
+
+            if (form[key].checkValidity()) {
+                if (regExp[key] === pattern) {
+                    console.log(key)
+                    result.push(true)
+                }
             } else {
-                console.log('INVALID')
-                console.log(form[name])
+                // console.log('INVALID')
+                // console.log(form[key])
             }
         })
 
@@ -140,7 +152,7 @@ export const modal = {
                 const form = modal.templateModal(data, 'Submit');
                 $('#employee-modal').replaceWith(form);
                 this.modalButtonListener(data, 'enabled');
-                this.onBlurListener()
+                // this.onBlurListener()
             } else {
                 if (this.checkInputs()) {
                     this.getInputValues(data, mode);
@@ -157,7 +169,7 @@ export const modal = {
             if (e.target && e.target.classList.contains('employee-modal-input')) {
                 console.log(e.target.id);
                 const identifier = e.target.id.split('__')[1]
-                validation(e.target.value, identifier)
+                // validation(e.target.value, identifier)
             }
         })
     }
