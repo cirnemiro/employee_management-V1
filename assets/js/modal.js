@@ -23,7 +23,7 @@ export const modal = {
             <div class="employee-modal__inputs-container__avatar">
                 <div class="employee-modal__avatar no-select">
                     <img src="https://avatars.dicebear.com/4.5/api/male/${employee.name}.svg" alt="employee.id">
-                    <p id="employee-modal__id" class="employee-modal__id">${employee ? '#' + employee.id : ''}</p>
+                    <input id="employee-modal-input__id" class="employee-modal-input__id" value='${employee ? employee.id : ''}' disabled></input>
                 </div>
             </div>
             <div class="employee-modal__inputs-container">
@@ -151,7 +151,7 @@ export const modal = {
                     this.getInputValues(data, mode);
 
                     $('#employee-modal').remove();
-                    location.reload();
+                    // location.reload();
                 }
             }
         })

@@ -36,7 +36,7 @@
   -webkit-overflow-scrolling: touch;
 }
 .jsgrid-table {
-  width: 100%;
+  width:100%;
   table-layout: fixed;
   border-collapse: collapse;
   border-spacing: 0;

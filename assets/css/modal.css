@@ -32,8 +32,6 @@
 }
 
 .employee-modal__inputs input {
-    /* padding: 0.3rem; */
-    /* flex: 2; */
     flex: 0.5;
 
     /* style */
@@ -45,23 +43,24 @@
     /* font */
     text-align: center;
 }
-.employee-modal__inputs input:hover {
+.employee-modal__inputs-container input,
+.employee-modal__pair input{
     transition: 0.2s;
     background-color: var(--white);
     border: 2px solid var(--white);
 }
 
-.employee-modal__inputs input:disabled {
+.employee-modal__inputs-container input:disabled,
+.employee-modal__pair input:disabled {
     background-color: transparent;
     border: 1px solid var(--ligth-purple);
 
     /* style */
     outline: none;
-    /* border: 2px solid var(--cream); */
     color: var(--cream);
 
     /* font */
-    font-size: 1.1em;
+    font-size: 1em;
     text-align: center;
 }
 .employee-modal__submit:hover {
@@ -117,9 +116,15 @@
 }
 
 /* avatar */
+.employee-modal__avatar input {
+    all: unset;
+    font-size: 1em;
+    color: var(--cream);
+    width: auto;
+}
 
 .employee-modal__inputs-container__avatar {
-    flex: 0.2;
+    max-width: 100px;
 }
 
 .employee-modal__avatar {

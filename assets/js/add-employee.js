@@ -14,7 +14,7 @@ const addEmployee = {
             $('tbody').prepend(modal.templateModal(false, 'Submit')).one();
             modal.modalButtonListener({
                 age: "", city: "", email: "", gender: "",
-                lastName: "", name: "", phoneNumber: "",
+                lastName: "", name: "", phoneNumber: "", id: "",
                 postalCode: "", state: "", streetAddress: ""
             }, 'add');
         })
