@@ -1,19 +1,19 @@
-export const validation = (value,identifier)=>{
+export const validation = (value, identifier) => {
     console.log('im in');
     const regExp = {
-        name : /^[A-Za-z]{2,10}/g,
-        lastName : /^[A-Za-z]{2,10}/g,
-        email : /ab+c/i,
-        postalCode : /ab+c/i,
-        
+        name: /^[A-Za-z]{2,10}/g,
+        lastName: /^[A-Za-z]{2,10}/g,
+        email: /ab+c/i,
+        postalCode: /ab+c/i,
+
     }
 
     console.log(regExp[identifier]);
-   
+
 
     if (value.match(regExp[identifier])) {
         console.log('good');
-    }else{
+    } else {
         console.log('nanana');
     }
 

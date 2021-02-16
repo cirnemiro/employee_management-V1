@@ -24,57 +24,88 @@ export const modal = {
                 </div>
                 <div class="employee-modal__pair">
                     <label>Name</label>
-                    <input class="employee-modal-input employee-modal-input__name" id="employee-modal-input__name" value="${employee ? employee.name : ''}" ${action}></input>
+                    <input name="name" class="employee-modal-input employee-modal-input__name" id="employee-modal-input__name" value="${employee ? employee.name : ''}" ${action}></input>
                 </div>
                 <div class="employee-modal__pair">
                     <label>Last Name</label>
-                    <input class="employee-modal-input" id="employee-modal-input__lastName" value="${employee ? employee.lastName : ''}" ${action} ></input>
+                    <input name="lastName" class="employee-modal-input" id="employee-modal-input__lastName" value="${employee ? employee.lastName : ''}" ${action} ></input>
                 </div>
             </div>
             <div class="employee-modal__inputs-container">
                 <div class="employee-modal__pair">
                     <label>Age</label>
-                    <input class="employee-modal-input" id="employee-modal-input__age" value="${employee ? employee.age : ''}" ${action}></input>
+                    <input name="age" class="employee-modal-input" id="employee-modal-input__age" value="${employee ? employee.age : ''}" ${action}></input>
                 </div>
                 <div class="employee-modal__pair">
                     <label>Gender</label>
-                    <input class="employee-modal-input" id="employee-modal-input__gender" value="${employee ? employee.gender : ''}" ${action}></input>
+                    <input name="gender" class="employee-modal-input" id="employee-modal-input__gender" value="${employee ? employee.gender : ''}" ${action}></input>
                 </div>
                 <div class="employee-modal__pair">
                     <label>E-mail</label>
-                    <input class="employee-modal-input" id="employee-modal-input__email" value="${employee ? employee.email : ''}" ${action}></input>
+                    <input name="email" class="employee-modal-input" id="employee-modal-input__email" value="${employee ? employee.email : ''}" ${action}></input>
                 </div>
             </div>
             <div class="employee-modal__inputs-container">
                 <div class="employee-modal__pair">
                     <label>ID</label>
-                    <input class="employee-modal-input" id="employee-modal-input__id" value="${employee ? employee.id : ''}" ${action}></input>
+                    <input name="id" class="employee-modal-input" id="employee-modal-input__id" value="${employee ? employee.id : ''}" ${action}></input>
                 </div>
                 <div class="employee-modal__pair">
                     <label>Phone</label>
-                    <input class="employee-modal-input" id="employee-modal-input__phoneNumber" value="${employee ? employee.phoneNumber : ''}" ${action}></input>
+                    <input name='phone' class="employee-modal-input" id="employee-modal-input__phoneNumber" value="${employee ? employee.phoneNumber : ''}" ${action}></input>
                 </div>
                 <div class="employee-modal__pair">
                     <label>State</label>
-                    <input class="employee-modal-input" id="employee-modal-input__state" value="${employee ? employee.state : ''}" ${action}></input>
+                    <input name="state" class="employee-modal-input" id="employee-modal-input__state" value="${employee ? employee.state : ''}" ${action}></input>
                 </div>
             </div>
             <div class="employee-modal__inputs-container">
                 <div class="employee-modal__pair">
                     <label>City</label>
-                    <input class="employee-modal-input" id="employee-modal-input__city" value="${employee ? employee.city : ''}" ${action}></input>
+                    <input name="city" class="employee-modal-input" id="employee-modal-input__city" value="${employee ? employee.city : ''}" ${action}></input>
                 </div>
                 <div class="employee-modal__pair">
                     <label>Postal Code</label>
-                    <input class="employee-modal-input" id="employee-modal-input__postalCode" value="${employee ? employee.postalCode : ''}" ${action}></input>
+                    <input name="postalCode" class="employee-modal-input" id="employee-modal-input__postalCode" value="${employee ? employee.postalCode : ''}" ${action}></input>
                 </div>
                 <div class="employee-modal__pair">
                     <label>Street Address</label>
-                    <input class="employee-modal-input" id="employee-modal-input__streetAddress" value="${employee ? employee.streetAddress : ''}" ${action}></input>
+                    <input name="streetAddress" class="employee-modal-input" id="employee-modal-input__streetAddress" value="${employee ? employee.streetAddress : ''}" ${action}></input>
                 </div>
             </div>
             `
         return template;
+    },
+    checkInputs: function () {
+        const form = document.forms[0];
+        const inputNames = [
+            'name', 'lastName', 'age', 'gender', 'email',
+            'id', 'phone', 'state', 'city', 'postalCode', 'streetAddress'
+        ]
+        inputNames.forEach(name => {
+            console.log(form[name])
+        })
+        return true;
+    },
+    getInputValues: function (data, mode) {
+        const keys = Object.keys(data);
+
+        // extract values from the inputs
+        keys.map(key => {
+            data[key] = $(`#employee-modal-input__${key}`).val();
+        })
+
+        const phpMethod = mode === 'add' ? 'addEmployee' : 'updateEmployee';
+        const phpResponse = mode === 'add' ? 'added' : 'updated';
+
+        changeData('GET', phpMethod, data).then(
+            response => {
+                // return JSON.parse(response);
+                if (response === phpResponse) {
+                    alert(data.name + ` has been ${phpResponse}`)
+                }
+            }
+        );
     },
     modalButtonListener: function (data, mode) {
         $('#employee-modal__exit').on('click', () => {
@@ -84,34 +115,19 @@ export const modal = {
         $('#employee-modal__submit').on('click', e => {
             e.preventDefault();
 
-            console.log('mode')
             if (mode === 'disabled') {
                 // re-render with listener on enabled mode
                 const form = modal.templateModal(data, 'Submit');
                 $('#employee-modal').replaceWith(form);
                 this.modalButtonListener(data, 'enabled');
             } else {
-                const keys = Object.keys(data);
+                if (this.checkInputs()) {
 
-                // extract values from the inputs
-                keys.map(key => {
-                    data[key] = $(`#employee-modal-input__${key}`).val();
-                })
+                    this.getInputValues(data, mode);
 
-                const phpMethod = mode === 'add' ? 'addEmployee' : 'updateEmployee';
-                const phpResponse = mode === 'add' ? 'added' : 'updated';
-
-                changeData('GET', phpMethod, data).then(
-                    response => {
-                        // return JSON.parse(response);
-                        if (response === phpResponse) {
-                            alert(data.name + ` has been ${phpResponse}`)
-                        }
-                    }
-                );
-
-                $('#employee-modal').remove();
-                location.reload();
+                    $('#employee-modal').remove();
+                    location.reload();
+                }
             }
         })
     }
