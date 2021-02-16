@@ -64,7 +64,7 @@ function render(employees) {
             }
         },
 
-        width: "95vw",
+        width: "90%",
         // margin: 'auto',
         filtering: false,
         editing: true,

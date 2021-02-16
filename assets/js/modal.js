@@ -68,11 +68,10 @@ export const modal = {
                     <input name="postalCode" class="employee-modal-input" id="employee-modal-input__postalCode" value="${employee ? employee.postalCode : ''}" pattern="[0-9]{5}" required ${action}></input>
                 </div>
                 <div class="employee-modal__pair">
-                    <label>Street Address</label>
+                    <label>Address</label>
                     <input name="streetAddress" class="employee-modal-input" id="employee-modal-input__streetAddress" value="${employee ? employee.streetAddress : ''}" pattern="^[A-Za-z0-9 ]{5,20}" required ${action}></input>
                 </div>
-            </div>
-            `
+            </div>`
         return template;
     },
     checkInputs: function () {

@@ -11,7 +11,7 @@ const addEmployee = {
             window.scrollTo(0, 0);
             console.log('scroll');
             $('#employee-modal').remove();
-            $('.grid').prepend(modal.templateModal(false, 'Submit')).one();
+            $('tbody').prepend(modal.templateModal(false, 'Submit')).one();
             modal.modalButtonListener({
                 age: "", city: "", email: "", gender: "", id: "",
                 lastName: "", name: "", phoneNumber: "",
