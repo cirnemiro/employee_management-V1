@@ -102,18 +102,5 @@
         "state": "LU",
         "postalCode": "63281",
         "phoneNumber": "91232876454"
-    },
-    {
-        "age": "22",
-        "city": "Barcelona",
-        "email": "googlillo@gmail.com",
-        "gender": "male",
-        "lastName": "arie",
-        "name": "Marcel",
-        "phoneNumber": "647147012",
-        "postalCode": "08001",
-        "state": "Barcelona",
-        "streetAddress": "Calle Mirallers 9",
-        "id": 1613479666
     }
 ]
