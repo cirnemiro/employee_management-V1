@@ -2,12 +2,12 @@
     background-color: var(--dark-purple);
     text-align: center;
     margin: 0 auto;
+    width: 90vw;
 }
 
 .employee-modal__inputs {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
     margin: 0 auto;
     margin-top: 2rem;
     align-items: center;
@@ -32,14 +32,14 @@
 }
 
 .employee-modal__inputs input {
-    padding: 0.3rem;
-    flex: 2;
+    /* padding: 0.3rem; */
+    /* flex: 2; */
 
     /* style */
     outline: none;
     border: 2px solid var(--cream);
     background-color: var(--cream);
-    margin: 0.5rem 0;
+    margin: 0.5rem auto;
 
     /* font */
     text-align: center;
@@ -52,8 +52,7 @@
 
 .employee-modal__inputs input:disabled {
     background-color: transparent;
-    border: 1px solid var(--white);
-    padding: 0.5rem;
+    border: 1px solid var(--ligth-purple);
 
     /* style */
     outline: none;
@@ -118,15 +117,18 @@
 
 /* avatar */
 
+.employee-modal__inputs-container__avatar {
+    flex: 0.5;
+}
+
 .employee-modal__avatar {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
 }
-.employee-modal__avatar span {
-    font-size: 3rem;
+.employee-modal__avatar img {
     margin: 0rem auto;
-    color: var(--cream);
+    /* width: 50px; */
 }
 
 .employee-modal__id {

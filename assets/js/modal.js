@@ -4,7 +4,7 @@ import {validation} from './validation.js';
 export const modal = {
     templateModal: function (employee, buttonType, action = '') {
         const template = `
-            <div id="employee-modal" class="employee-modal width100">
+            <div id="employee-modal" class="employee-modal">
                 <form>
                     <div  id="employee-modal__inputs" class="employee-modal__inputs"> 
                         ${this.templateInputs(employee, action)}
@@ -18,13 +18,13 @@ export const modal = {
     },
     templateInputs: function (employee, action) {
         const template = `
-            <div class="employee-modal__inputs-container">
+            <div class="employee-modal__inputs-container__avatar">
                 <div class="employee-modal__avatar no-select">
-                    <span class="material-icons">
-                        face
-                    </span>
+                    <img src="https://avatars.dicebear.com/4.5/api/male/${employee.name}.svg" alt="employee.id">
                     <p id="employee-modal__id" class="employee-modal__id">${employee ? '#' + employee.id : ''}</p>
                 </div>
+            </div>
+            <div class="employee-modal__inputs-container">
                 <div class="employee-modal__pair">
                     <label>Name</label>
                     <input name="name" class="employee-modal-input employee-modal-input__name" id="employee-modal-input__name" value="${employee ? employee.name : ''}" pattern="^[A-Za-z]{2,10}" required ${action}></input>
