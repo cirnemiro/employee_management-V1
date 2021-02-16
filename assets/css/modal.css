@@ -8,8 +8,7 @@
 .employee-modal__inputs {
     display: flex;
     flex-direction: row;
-    margin: 0 auto;
-    margin-top: 2rem;
+    margin: 1rem 2rem;
     align-items: center;
 }
 .employee-modal__pair {
@@ -29,6 +28,7 @@
     font-weight: bold;
     font-size: 0.8em;
     flex: 1;
+    margin: 0 auto;
 }
 
 .employee-modal__inputs input {
@@ -119,7 +119,7 @@
 /* avatar */
 
 .employee-modal__inputs-container__avatar {
-    flex: 0.5;
+    flex: 0.2;
 }
 
 .employee-modal__avatar {

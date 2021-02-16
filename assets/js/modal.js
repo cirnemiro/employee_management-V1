@@ -4,6 +4,7 @@ import {validation} from './validation.js';
 export const modal = {
     templateModal: function (employee, buttonType, action = '') {
         const template = `
+        <div>
             <div id="employee-modal" class="employee-modal">
                 <form>
                     <div  id="employee-modal__inputs" class="employee-modal__inputs"> 
@@ -12,6 +13,7 @@ export const modal = {
                     <button class="employee-modal__submit" id="employee-modal__submit" data-edit="false" type="submit">${buttonType}</button>
                     <button type="button" class="employee-modal__exit" id="employee-modal__exit">Exit</button>
                 </form>
+            </div>
             </div>`
 
         return template;
@@ -33,8 +35,6 @@ export const modal = {
                     <label>Last Name</label>
                     <input name="lastName" class="employee-modal-input" id="employee-modal-input__lastName" value="${employee ? employee.lastName : ''}" required pattern="^[A-Za-z]{2,10}" ${action}></input>
                 </div>
-            </div>
-            <div class="employee-modal__inputs-container">
                 <div class="employee-modal__pair">
                     <label>Age</label>
                     <input name="age" class="employee-modal-input" id="employee-modal-input__age" value="${employee ? employee.age : ''}"  pattern="^[0-9]{0,2}" required ${action}></input>
@@ -57,14 +57,12 @@ export const modal = {
                     <label>State</label>
                     <input name="state" class="employee-modal-input" id="employee-modal-input__state" value="${employee ? employee.state : ''}" pattern='^[A-Za-z ]{2,10}' required ${action}></input>
                 </div>
-            </div>
-            <div class="employee-modal__inputs-container">
                 <div class="employee-modal__pair">
                     <label>City</label>
                     <input name="city" class="employee-modal-input" id="employee-modal-input__city" value="${employee ? employee.city : ''}" pattern="^[A-Za-z]{2,20}" required ${action}></input>
                 </div>
                 <div class="employee-modal__pair">
-                    <label>Postal Code</label>
+                    <label>ZIP</label>
                     <input name="postalCode" class="employee-modal-input" id="employee-modal-input__postalCode" value="${employee ? employee.postalCode : ''}" pattern="[0-9]{5}" required ${action}></input>
                 </div>
                 <div class="employee-modal__pair">
