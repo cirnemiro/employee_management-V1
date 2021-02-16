@@ -84,7 +84,7 @@ function render(employees) {
             // TODO // auto select gender from data //
             {
                 name: "gender", type: "select",
-                items: ['male', 'female', 'non-binary'], width: "auto",
+                items: ['male', 'female', 'non binary'], width: "auto",
                 headercss: 'table'
             },
             {name: "age", type: "number", width: "auto", headercss: 'table'},
