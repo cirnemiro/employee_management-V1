@@ -107,6 +107,7 @@ function render(employees) {
                 $(row).attr('data-open', 'true');
                 $(form).insertAfter($(row));
                 modal.modalButtonListener(data.item, 'disabled');
+                modal.avatarListener();
             } else {
                 $(row).removeAttr('data-open');
                 $('#employee-modal').remove();
