@@ -6,7 +6,6 @@ export const validation = (value, identifier) => {
         email: /^[a - zA - Z0 - 9.!#$ %&’* +/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
         city: /[A-Za-z]/g,
         age: /^[0-9]{2}/g,
-        id: /^[0-9]/g,
         phone: /(\+34|0034|34)?[ -]*(6|7)[ -]*([0-9][ -]*){8}/g,
         state: /^[A-Za-z ]{2,10}/g,
         streetAddress: /^[A-Za-z0-9 ]{5,20}/g,

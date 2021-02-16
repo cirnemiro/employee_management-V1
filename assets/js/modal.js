@@ -49,10 +49,6 @@ export const modal = {
             </div>
             <div class="employee-modal__inputs-container">
                 <div class="employee-modal__pair">
-                    <label>ID</label>
-                    <input name="id" class="employee-modal-input" id="employee-modal-input__id" value="${employee ? employee.id : ''}" pattern='^[0-9]' required ${action}></input>
-                </div>
-                <div class="employee-modal__pair">
                     <label>Phone</label>
                     <input name='phone' class="employee-modal-input" id="employee-modal-input__phoneNumber" value="${employee ? employee.phoneNumber : ''}" pattern="^[0-9]" required ${action}></input>
                 </div>
@@ -83,7 +79,7 @@ export const modal = {
         const form = document.forms[0];
         const inputNames = [
             'name', 'lastName', 'age', 'gender', 'email',
-            'id', 'phone', 'state', 'city', 'postalCode', 'streetAddress'
+            'phone', 'state', 'city', 'postalCode', 'streetAddress'
         ]
         const regExp = {
             name: '^[A-Za-z]{2,10}',
@@ -92,14 +88,13 @@ export const modal = {
             city: '[A-Za-z]',
             age: '^[0-9]{0,2}',
             gender: '^[A-Za-z ]{2,10}',
-            id: '^[0-9]',
             phone: '^[0-9]',
             state: '^[A-Za-z ]{2,10}',
             streetAddress: '^[A-Za-z0-9 ]{5,20}',
             postalCode: '[0-9]{5}',
         }
         const result = [];
-        inputNames.forEach((key, index) => {
+        inputNames.forEach(key => {
             const pattern = form[key].pattern;
 
             if (form[key].checkValidity()) {
@@ -168,7 +163,7 @@ export const modal = {
             if (e.target && e.target.classList.contains('employee-modal-input')) {
                 console.log(e.target.id);
                 const identifier = e.target.id.split('__')[1]
-                // validation(e.target.value, identifier)
+                validation(e.target.value, identifier)
             }
         })
     }

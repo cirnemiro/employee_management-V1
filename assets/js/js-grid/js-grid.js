@@ -76,18 +76,17 @@ function render(employees) {
         fields: [
             {
                 name: "id", type: "number", width: "auto", align: "center",
-                validate: "required", headercss: 'table'
+                visible: false
             },
-            {name: "name", type: "text", width: "auto", headercss: 'table'},
-            {name: "lastName", type: "text", width: "auto", headercss: 'table'},
-            {name: "email", type: "email", width: "auto", headercss: 'table'},
+            {name: "name", type: "text", width: "auto"},
+            {name: "lastName", type: "text", width: "auto"},
+            {name: "email", type: "email", width: "auto"},
             // TODO // auto select gender from data //
             {
                 name: "gender", type: "select",
-                items: ['male', 'female', 'non binary'], width: "auto",
-                headercss: 'table'
+                items: ['male', 'female', 'non binary'], width: "auto"
             },
-            {name: "age", type: "number", width: "auto", headercss: 'table'},
+            {name: "age", type: "number", width: "auto"},
             {type: "control"},
         ],
         rowDoubleClick: function (data) {
