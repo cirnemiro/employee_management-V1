@@ -5,7 +5,7 @@ const addEmployee = {
         <span id="custom-add__icon" class="material-icons">
             person_add
         </span>
-    </div>'`,
+    </div>`,
     addEmployeeListener: function () {
         $('#custom-add').on('click', () => {
             window.scrollTo(0, 0);

@@ -29,7 +29,7 @@ function render(employees) {
 
         controller: {
             loadData: () => {
-                $('body').append(addEmployee.template)
+                $('.custom-add__header').append(addEmployee.template)
                 addEmployee.addEmployeeListener();
             },
             updateItem: (args) => {
@@ -92,7 +92,7 @@ function render(employees) {
                 items: ['male', 'female', 'non binary'], width: "auto"
             },
             {name: "age", type: "number", width: "auto"},
-            {type: "control"},
+            {type: "control", headercss: 'custom-add__header'},
         ],
         rowDoubleClick: function (data) {
             const cell = data.event.target;

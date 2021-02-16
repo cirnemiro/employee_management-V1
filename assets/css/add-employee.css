@@ -1,36 +1,29 @@
 .custom-add {
-    background-color: var(--ligth-purple);
     cursor: pointer;
-    border-radius: 10px;
-    padding: 0.2rem 0.5rem;
-    border: 2px solid var(--cream);
-    max-width: 5rem;
+    border-radius: 5px;
 }
 
 .custom-add:hover {
-    background-color: var(--ligth-purple);
-    transition: 0.2s;
+    /* transition: 0.2s; */
 }
 
 .custom-add:active {
-    border: 2px solid var(--yellow);
-    padding: 0.1rem 0.5rem;
-    transform: translateY(0.15rem);
+    /* border: 2px solid var(--yellow); */
     transition: 0.1s;
 }
 
 .custom-add-position {
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
+    /* position: fixed; */
 }
 
 .custom-add span {
-    font-size: 4rem;
+    font-size: 2rem;
     color: var(--cream);
-    text-shadow: var(--yellow);
 }
 .custom-add span:hover {
     color: var(--white);
     transition: 0.2s;
+}
+.custom-add span:active {
+    transition: 0.1s;
 }
