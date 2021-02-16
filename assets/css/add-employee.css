@@ -18,10 +18,10 @@
 
 .custom-add span {
     font-size: 2rem;
-    color: var(--cream);
+    color: var(--blue);
 }
 .custom-add span:hover {
-    color: var(--white);
+    color: var(--dark-blue);
     transition: 0.2s;
 }
 .custom-add span:active {

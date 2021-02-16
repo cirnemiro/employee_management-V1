@@ -1,6 +1,6 @@
 .header__title {
   font-size: 50px;
   font-family: "Roboto", sans-serif;
-  color: white;
+  color: var(--blue);
   padding: 20px;
 }

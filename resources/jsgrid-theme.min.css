@@ -10,7 +10,7 @@
 .jsgrid-grid-header,
 .jsgrid-header-row > .jsgrid-header-cell,
 .jsgrid-insert-row > .jsgrid-cell {
-  border: 1px solid var(--ligth-purple);
+  /* border: 1px solid var(--ligth-purple); */
 }
 .jsgrid-header-row > .jsgrid-header-cell {
   border-top: 0;
@@ -36,6 +36,7 @@
 }
 .jsgrid-grid-header {
   background: #f9f9f9;
+    /* border: 1px solid var(--blue); */
 }
 .jsgrid-header-scrollbar {
   scrollbar-arrow-color: #f1f1f1;
@@ -50,7 +51,7 @@
   visibility: hidden;
 }
 .jsgrid-header-scrollbar::-webkit-scrollbar-track {
-  background: var(--dark-purple);
+  /* background: var(--dark-purple); */
 }
 .jsgrid-header-sortable:hover {
   cursor: pointer;
@@ -69,7 +70,7 @@
 }
 .jsgrid-header-sort-asc:before {
   border-width: 0 5px 5px;
-  border-color: transparent transparent var(--yellow);
+  border-color: transparent transparent var(--dark-red);
 }
 .jsgrid-header-sort-desc:before {
   border-width: 5px 5px 0;
@@ -83,7 +84,7 @@
 }
 .jsgrid-grid-body .jsgrid-alt-row:first-child .jsgrid-cell,
 .jsgrid-grid-body .jsgrid-row:first-child .jsgrid-cell {
-  border-top: none;
+  /* border-top: none; */
 }
 .jsgrid-grid-body .jsgrid-cell:first-child {
   border-left: none;
@@ -92,18 +93,18 @@
   border-right: none;
 }
 .jsgrid-row > .jsgrid-cell {
-  background: var(--ligth-purple);
-    color: var(--white);
+  background: var(--cream);
+    color: var(--black);
     text-align: center;
 }
 .jsgrid-alt-row > .jsgrid-cell {
-  background: var(--dark-purple);
-    color: var(--white);
+  background: var(--white);
+    color: var(--black);
     text-align: center;
 }
 .jsgrid-header-row > .jsgrid-header-cell {
-  background: var(--dark-purple);
-    color: var(--cream);
+  background: var(--white);
+    color: var(--blue);
 }
 .jsgrid-filter-row > .jsgrid-cell {
   background: #fcfcfc;
@@ -115,8 +116,8 @@
   background: #fdffe3;
 }
 .jsgrid-selected-row > .jsgrid-cell {
-  background: var(--yellow);
-  border-color: var(--yellow);
+  background: var(--light-blue);
+  border-color: var(--blue);
     color: var(--black);
     transition: 0.1s;
 }

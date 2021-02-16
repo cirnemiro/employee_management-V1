@@ -15,16 +15,22 @@
   box-sizing: border-box;
 }
 
+.grid {
+    border: 2px solid var(--blue);
+}
+
 :root {
   --black: #282828;
   --yellow: #e8c547;
-  --dark-purple: #30323d;
-  --ligth-purple: #4d5061;
+  --light-blue: #BED6FF;
   --blue: #5c80bc;
   --dark-blue: #4d6c9f;
   --red: #bc5c5c;
   --dark-red: #9f4d4d;
   --wrong: #ff1f1f;
-  --cream: #cdd1c4;
-  --white: #f9fdef;
+  --cream: #FFFFFF;
+  --white: #FFFFFF;
+
+
+ /* new colors */
 }

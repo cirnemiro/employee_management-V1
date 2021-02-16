@@ -1,5 +1,5 @@
 .employee-modal {
-    background-color: var(--dark-purple);
+    background-color: var(--white);
     text-align: center;
     margin: 0 auto;
     width: 90vw;
@@ -8,7 +8,7 @@
 .employee-modal__inputs {
     display: flex;
     flex-direction: row;
-    margin: 1rem 3rem;
+    padding: 1rem 3rem;
     align-items: center;
 }
 .employee-modal__pair {
@@ -24,7 +24,7 @@
     justify-content: center;
 }
 .employee-modal__inputs label {
-    color: var(--cream);
+    color: var(--blue);
     font-weight: bold;
     font-size: 0.8em;
     flex: 1;
@@ -36,8 +36,8 @@
 
     /* style */
     outline: none;
-    border: 2px solid var(--cream);
-    background-color: var(--cream);
+    border: 2px solid var(--black);
+    background-color: var(--blue);
     margin: 0.5rem auto;
 
     /* font */
@@ -47,17 +47,17 @@
 .employee-modal__pair input{
     transition: 0.2s;
     background-color: var(--white);
-    border: 2px solid var(--white);
+    border: 1px solid var(--light-blue);
 }
 
 .employee-modal__inputs-container input:disabled,
 .employee-modal__pair input:disabled {
     background-color: transparent;
-    border: 1px solid var(--ligth-purple);
+    border: 1px solid var(--cream);
 
     /* style */
     outline: none;
-    color: var(--cream);
+    color: var(--black);
 
     /* font */
     font-size: 1em;
@@ -118,13 +118,15 @@
 /* avatar */
 .employee-modal__avatar input {
     all: unset;
-    font-size: 1em;
-    color: var(--cream);
+    margin: 0.4rem 0;
+    color: var(--blue);
+    font-weight: 200;
     width: auto;
 }
 
 .employee-modal__inputs-container__avatar {
     max-width: 100px;
+    font-size: 0.8rem;
 }
 
 .employee-modal__avatar {
